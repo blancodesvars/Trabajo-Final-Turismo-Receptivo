@@ -12,7 +12,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 library(foreign)
 library(haven)
+library(dplyr)
 t1.2011 <- read.spss("D://Trabajo-Final-Turismo-Receptivo/r1t11.sav", to.data.frame = TRUE)
+t1.2011a<- t1.2011%>%
+  select(gente, destino, estadia, gtogrup, nac, aloja, motivo, entro, menos15, ent1529, ent3064, mas65, fmenos15, f15a29, f30a64, fmas64, gpaq, gfptot, gfpalo, galoj, gfpali, galim, gfptra, gtrans, gfpcult, gcult, gfptur, gtur, gfpcomp, gcomp, gfpotr, gresto, gtotal)
+  
 ```
 
 
