@@ -1,0 +1,15 @@
+---
+title: "borrador"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(foreign)
+library(haven)
+t1.2011 <- read.spss("D://Trabajo-Final-Turismo-Receptivo/r1t11.sav", to.data.frame = TRUE)
+```
+
