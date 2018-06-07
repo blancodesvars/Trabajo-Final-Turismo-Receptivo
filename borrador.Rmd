@@ -7,9 +7,12 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+##2011
+###Primer Trimestre
 ```{r}
 library(foreign)
 library(haven)
 t1.2011 <- read.spss("D://Trabajo-Final-Turismo-Receptivo/r1t11.sav", to.data.frame = TRUE)
 ```
+
 
