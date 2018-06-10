@@ -19,4 +19,11 @@ t1.2011a<- t1.2011%>%
   
 ```
 
+```{r}
+t4.2015 <- read.spss("D:\\Trabajo-Final-Turismo-Receptivo/R4T15.sav", to.data.frame = TRUE)
 
+ by_Entro <- t4.2015  %>% mutate(Gente1= Gente*coef) %>% select(Entro, Gente1) %>% group_by(Entro) %>% summarise(n= sum(Gente1))
+ 
+ by_Entro
+ 
+```
