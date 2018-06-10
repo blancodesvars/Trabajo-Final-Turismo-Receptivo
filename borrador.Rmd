@@ -28,7 +28,8 @@ t4.2015 <- read.spss("D:\\Trabajo-Final-Turismo-Receptivo/R4T15.sav", to.data.fr
  by_Entro
  
  
- by_Destino <- t4.2015  %>% mutate(Gente1= Gente*coef) %>% select(Destino, Gente1) %>% group_by(Destino) %>% summarise(n= sum(Gente1))
+by_Destino <- t4.2015  %>% mutate(Gente1= Gente*coef) %>% select(Destino, Gente1, Estadia) %>% group_by(Destino) %>% summarise(n= sum(Gente1), dias= mean(Estadia))
+
  by_Destino
  
  
