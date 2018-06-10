@@ -32,5 +32,9 @@ by_Destino <- t4.2015  %>% mutate(Gente1= Gente*coef) %>% select(Destino, Gente1
 
  by_Destino
  
+ by_Nac <- t4.2015  %>%  mutate(Gasto= GTotal*coef) %>%  mutate(Gente1= Gente*coef) %>% select(Nac, Gente1, Estadia, Gasto) %>% group_by(Nac) %>% summarise(n= sum(Gente1), dias= mean(Estadia), Gastos= sum(Gasto))
+ 
+ by_Nac %>% mutate(Gastos_Dia = Gastos/n) 
+ 
  
 ```
