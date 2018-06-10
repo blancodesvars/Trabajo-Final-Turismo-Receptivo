@@ -9,6 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ##2011
 ###Primer Trimestre
+
 ```{r}
 library(foreign)
 library(haven)
@@ -25,5 +26,10 @@ t4.2015 <- read.spss("D:\\Trabajo-Final-Turismo-Receptivo/R4T15.sav", to.data.fr
  by_Entro <- t4.2015  %>% mutate(Gente1= Gente*coef) %>% select(Entro, Gente1) %>% group_by(Entro) %>% summarise(n= sum(Gente1))
  
  by_Entro
+ 
+ 
+ by_Destino <- t4.2015  %>% mutate(Gente1= Gente*coef) %>% select(Destino, Gente1) %>% group_by(Destino) %>% summarise(n= sum(Gente1))
+ by_Destino
+ 
  
 ```
