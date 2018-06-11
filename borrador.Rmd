@@ -21,6 +21,7 @@ t1.2011a<- t1.2011%>%
 ```
 
 ```{r}
+library(xtable)
 t4.2015 <- read.spss("D:\\Trabajo-Final-Turismo-Receptivo/R4T15.sav", to.data.frame = TRUE)
 
  by_Entro <- t4.2015  %>% mutate(Gente1= Gente*coef) %>% select(Entro, Gente1) %>% group_by(Entro) %>% summarise(n= sum(Gente1))
@@ -35,6 +36,16 @@ by_Destino <- t4.2015  %>% mutate(Gente1= Gente*coef) %>% select(Destino, Gente1
  by_Nac <- t4.2015  %>%  mutate(Gasto= GTotal*coef) %>%  mutate(Gente1= Gente*coef) %>% select(Nac, Gente1, Estadia, Gasto) %>% group_by(Nac) %>% summarise(n= sum(Gente1), dias= mean(Estadia), Gastos= sum(Gasto))
  
  by_Nac %>% mutate(Gastos_Dia = Gastos/n) 
+ 
+
+options(xtable.floating = FALSE)
+ 
+ by_Aloja <- t4.2015  %>% mutate(Gente1= Gente*coef) %>%  mutate(Gasto= GTotal*coef) %>% select(Aloja, Gente1, Estadia, Gasto) %>% group_by(Aloja) %>% summarise(n= sum(Gente1), dias= mean(Estadia), Gastos= sum(Gasto))
+ 
+ by_Aloja1 <- by_Aloja %>% mutate(Gastos_Dia = Gastos/n)
+ 
+ 
+ 
  
  
 ```
