@@ -7,45 +7,65 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-##2011
-###Primer Trimestre
 
-```{r}
-library(foreign)
-library(haven)
+```{r, echo=FALSE}
 library(dplyr)
-t1.2011 <- read.spss("D://Trabajo-Final-Turismo-Receptivo/r1t11.sav", to.data.frame = TRUE)
-t1.2011a<- t1.2011%>%
-  select(gente, destino, estadia, gtogrup, nac, aloja, motivo, entro, menos15, ent1529, ent3064, mas65, fmenos15, f15a29, f30a64, fmas64, gpaq, gfptot, gfpalo, galoj, gfpali, galim, gfptra, gtrans, gfpcult, gcult, gfptur, gtur, gfpcomp, gcomp, gfpotr, gresto, gtotal)
+library(foreign)
+library(xtable)
+
+t4.2015 <- read.spss("D:\\Trabajo-Final-Turismo-Receptivo/R4T15.sav", to.data.frame = TRUE)
   
 ```
 
-```{r}
-library(xtable)
-t4.2015 <- read.spss("D:\\Trabajo-Final-Turismo-Receptivo/R4T15.sav", to.data.frame = TRUE)
 
- by_Entro <- t4.2015  %>% mutate(Gente1= Gente*coef) %>% select(Entro, Gente1) %>% group_by(Entro) %>% summarise(n= sum(Gente1))
- 
- by_Entro
- 
- 
-by_Destino <- t4.2015  %>% mutate(Gente1= Gente*coef) %>% select(Destino, Gente1, Estadia) %>% group_by(Destino) %>% summarise(n= sum(Gente1), dias= mean(Estadia))
 
- by_Destino
- 
+VISITANTES INGRESADOS A URUGUAY, POR ZONA DE DESTINO, ESTADÍA Y GASTO
+
+```{r, echo=FALSE, results='asis'}
+options(xtable.comment = FALSE)
+by_Destino <- t4.2015  %>%  mutate(Gasto= GTotal*coef) %>% mutate(Gente1= Gente*coef) %>% select(Destino, Gente1, Estadia, Gasto) %>% group_by(Destino) %>% summarise(n= sum(Gente1), dias= mean(Estadia), Gastos= sum(Gasto))
+
+destino <-  by_Destino %>% mutate(Gastos_P = Gastos/n) %>% mutate(Gastos_PDia = Gastos_P/dias ) %>% xtable()
+
+print(xtable(destino))
+```
+
+VISITANTES INGRESADOS A URUGUAY, POR NACIONALIDAD, ESTADÍA Y GASTO
+
+```{r,echo= FALSE, results='asis'} 
+
+options(xtable.comment = FALSE)
+
  by_Nac <- t4.2015  %>%  mutate(Gasto= GTotal*coef) %>%  mutate(Gente1= Gente*coef) %>% select(Nac, Gente1, Estadia, Gasto) %>% group_by(Nac) %>% summarise(n= sum(Gente1), dias= mean(Estadia), Gastos= sum(Gasto))
  
- by_Nac %>% mutate(Gastos_Dia = Gastos/n) 
- 
+ nacionalidad <- by_Nac %>% mutate(Gastos_P = Gastos/n) %>% mutate(Gastos_PDia = Gastos_P/dias ) %>% xtable()
 
-options(xtable.floating = FALSE)
+print(xtable(nacionalidad))
  
+```
+
+VISITANTES INGRESADOS A URUGUAY, POR ALOJAMIENTO UTILIZADO, ESTADÍA Y GASTO
+
+```{r,echo= FALSE, results='asis'} 
+
  by_Aloja <- t4.2015  %>% mutate(Gente1= Gente*coef) %>%  mutate(Gasto= GTotal*coef) %>% select(Aloja, Gente1, Estadia, Gasto) %>% group_by(Aloja) %>% summarise(n= sum(Gente1), dias= mean(Estadia), Gastos= sum(Gasto))
  
- by_Aloja1 <- by_Aloja %>% mutate(Gastos_Dia = Gastos/n)
- 
- 
- 
+alojamiento <- by_Aloja %>%  mutate(Gastos_P = Gastos/n) %>% mutate(Gastos_PDia = Gastos_P/dias )%>% xtable()
+
+print(xtable(alojamiento))
  
  
 ```
+
+VISITANTES INGRESADOS A URUGUAY, POR ZONA DE INGRESO, ESTADÍA Y GASTO
+
+```{r,echo=FALSE, results='asis'}
+options(xtable.comment = FALSE)
+
+ x <-  by_Entro <- t4.2015  %>% mutate(Gente1= Gente*coef) %>% select(Entro, Gente1) %>% group_by(Entro) %>% summarise(n= sum(Gente1)) %>% xtable()
+ 
+ print(xtable(x))
+ 
+```
+
+
