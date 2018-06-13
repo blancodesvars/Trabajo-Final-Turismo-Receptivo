@@ -12,6 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(foreign)
 library(xtable)
+library(ggplot2)
 
 t4.2015 <- read.spss("D:\\Trabajo-Final-Turismo-Receptivo/R4T15.sav", to.data.frame = TRUE)
   
@@ -28,7 +29,13 @@ by_Destino <- t4.2015  %>%  mutate(Gasto= GTotal*coef) %>% mutate(Gente1= Gente*
 destino <-  by_Destino %>% mutate(Gastos_P = Gastos/n) %>% mutate(Gastos_PDia = Gastos_P/dias ) %>% xtable()
 
 print(xtable(destino))
+
+destino_n<-ggplot(destino)+
+  geom_point(aes(Destino,n))+
+  coord_flip()+
+  labs(y="Cantidad de visitantes")
 ```
+
 
 VISITANTES INGRESADOS A URUGUAY, POR NACIONALIDAD, ESTADÍA Y GASTO
 
