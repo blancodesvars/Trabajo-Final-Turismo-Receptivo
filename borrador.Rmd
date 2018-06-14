@@ -30,10 +30,29 @@ destino <-  by_Destino %>% mutate(Gastos_P = Gastos/n) %>% mutate(Gastos_PDia = 
 
 print(xtable(destino))
 
-destino_n<-ggplot(destino)+
-  geom_point(aes(Destino,n))+
-  coord_flip()+
+ggplot(destino)+
+  geom_col(aes(Destino,n))+
   labs(y="Cantidad de visitantes")
+
+ggplot(destino)+
+  geom_col(aes(Destino,dias))+
+  coord_polar()
+
+ggplot(destino)+
+  geom_col(aes(Destino,Gastos))
+
+ggplot(destino)+
+  geom_col(aes(Destino,Gastos_P))
+
+ggplot(destino)+
+  geom_col(aes(Destino,Gastos_PDia))
+
+ggplot(destino)+
+  geom_point(aes(dias,n,color=Destino, size=1))+
+  labs(y="Cantidad de visitantes")
+
+ggplot(destino)+
+  geom_point(aes(Gastos_P,dias,color=Destino))
 ```
 
 
