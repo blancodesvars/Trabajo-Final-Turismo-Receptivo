@@ -5,9 +5,7 @@ ui <- fluidPage(
   tabsetPanel(
     tabPanel("2010",navlistPanel(
       "Variables Primarias",
-      tabPanel("Destino",
-               h3("Primer panel")
-      ),
+      tabPanel("Destino"),
       tabPanel("Alojamiento"),
       tabPanel("Nacionalidad"),
       tabPanel("Ingreso")
@@ -21,6 +19,7 @@ ui <- fluidPage(
         tabPanel("Gastos/Persona"),
         tabPanel("Gastos/Dia c/Persona")))
     )),
+    
     tabPanel("2011",navlistPanel(
       "Variables Primarias",
       tabPanel("Destino",
@@ -39,6 +38,7 @@ ui <- fluidPage(
         tabPanel("Gastos/Persona"),
         tabPanel("Gastos/Dia c/Persona")))
     )),
+    
     tabPanel("2012",navlistPanel(
       "Variables Primarias",
       tabPanel("Destino",
@@ -57,6 +57,7 @@ ui <- fluidPage(
         tabPanel("Gastos/Persona"),
         tabPanel("Gastos/Dia c/Persona")))
     )),
+    
     tabPanel("2013",navlistPanel(
       "Variables Primarias",
       tabPanel("Destino",
@@ -75,6 +76,7 @@ ui <- fluidPage(
         tabPanel("Gastos/Persona"),
         tabPanel("Gastos/Dia c/Persona")))
     )),
+    
     tabPanel("2014",navlistPanel(
       "Variables Primarias",
       tabPanel("Destino",
@@ -93,6 +95,7 @@ ui <- fluidPage(
         tabPanel("Gastos/Persona"),
         tabPanel("Gastos/Dia c/Persona")))
     )),
+    
     tabPanel("2015",navlistPanel(
       "Variables Primarias",
       tabPanel("Destino",
@@ -111,6 +114,7 @@ ui <- fluidPage(
         tabPanel("Gastos/Persona"),
         tabPanel("Gastos/Dia c/Persona")))
     )),
+    
     tabPanel("Linea Temporal")
   )
 )
