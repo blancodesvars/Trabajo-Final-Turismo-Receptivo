@@ -8,8 +8,9 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r, echo=FALSE, warning=FALSE, message=FALSE, results='hide'}
 library(tidyverse)
+library(rgdal)
 library(lubridate)
 library(forcats)
 library(dplyr)
@@ -17,42 +18,37 @@ library(foreign)
 library(xtable)
 library(ggplot2)
 
-t1.2015 <- read.spss("D:\\Trabajo-Final-Turismo-Receptivo/R1T15.sav", to.data.frame = TRUE)
-na.omit(t1.2015)
+B2015 <- read.spss("D:\\Trabajo-Final-Turismo-Receptivo/R15.sav", to.data.frame = TRUE)
+na.omit(2015)
 
-t2.2015 <- read.spss("D:\\Trabajo-Final-Turismo-Receptivo/R2T15.sav", to.data.frame = TRUE)
 
 t4.2015 <- read.spss("D:\\Trabajo-Final-Turismo-Receptivo/R4T15.sav", to.data.frame = TRUE)
 na.omit(t4.2015)
 
-t1.2014 <- read.spss("D:\\Trabajo-Final-Turismo-Receptivo/R1T14.sav", to.data.frame = TRUE)
-
-t2.2014 <- read.spss("D:\\Trabajo-Final-Turismo-Receptivo/R2T14.sav", to.data.frame = TRUE)
-
-t3.2014 <- read.spss("D:\\Trabajo-Final-Turismo-Receptivo/R3T14.sav", to.data.frame = TRUE)
-
-t4.2014 <- read.spss("D:\\Trabajo-Final-Turismo-Receptivo/R4T14.sav", to.data.frame = TRUE)
   
 ```
 
 
 
-VISITANTES INGRESADOS A URUGUAY, POR ZONA DE DESTINO, ESTADÍA Y GASTO
+VISITANTES INGRESADOS A URUGUAY, POR ZONA DE DESTINO, ESTADIA Y GASTO
 
 ```{r, echo=FALSE, results='asis'}
+
 options(xtable.comment = FALSE)
-by_Destino <- t4.2015  %>%  mutate(Gasto= GTotal*coef) %>% mutate(Gente1= Gente*coef) %>% select(Destino, Gente1, Estadia, Gasto) %>% group_by(Destino) %>% summarise(n= sum(Gente1), dias= mean(Estadia), Gastos= sum(Gasto))
+by_Destino <- B2015  %>%  mutate(Gasto= GTotal*coef) %>% mutate(Gente1= Gente*coef) %>% dplyr::select(Destino, Gente1, Estadia, Gasto) %>% group_by(Destino) %>% summarise(n= sum(Gente1), dias= mean(Estadia), Gastos= sum(Gasto))
 
 destino <-  by_Destino %>% mutate(Gastos_P = Gastos/n) %>% mutate(Gastos_PDia = Gastos_P/dias ) %>% mutate(value = (n/sum(n))*100) %>% xtable()
 
-destino2 <-  by_Destino %>% mutate(Porcentaje = (n/sum(n))*100)
-destino2 
+destino2 <- destino %>% mutate(Porcentaje = (n/sum(n))*100)
+
+count <- by_Destino %>% dplyr::select(Destino,n) 
+
 
 print(xtable(destino))
 
 ggplot(destino)+
-  geom_col(aes(Destino,n))+
-  labs(y="Cantidad de visitantes")
+  geom_col(aes(Destino,n,fill=Destino))+
+  labs(y="Cantidad de visitantes")+ coord_flip()+ theme(legend.position="none")
 
 ggplot(destino)+
   geom_col(aes(Destino,dias))+
@@ -60,25 +56,23 @@ ggplot(destino)+
 
 ggplot(destino)+
   geom_col(aes(Destino,Gastos))
+ggplot(destino)+geom_col(aes(Destino,Gastos_PDia))
 
-ggplot(destino)+
-  geom_col(aes(Destino,Gastos_P))
-
-ggplot(destino)+
-  geom_col(aes(Destino,Gastos_PDia))
-
+ggplot(destino)+ geom_col(aes(Destino,Gastos_P))
 ```
+
+
+
 
 ```{r, echo=FALSE}
-lugar <- c("Montevideo","Pta del Este","Litoral Termal","Colonia","Transito","Otros, S/D","Costa de Oro","Piriapolis","Costas Oceanicas")
 
-x <- destino2 %>% select(Destino,Porcentaje) %>% gather(Destino,Porcentaje)
-x
- x %>% ggplot() + geom_col(aes(x=Destino, y= Porcentaje)) + scale_x_discrete(limits = lugar) + coord_flip()
+x <- destino %>% select(Destino,value) %>% gather(Destino,value)
 
+x %>% ggplot() + geom_col(aes(x=fct_reorder(Destino,value, .desc = TRUE), y= value)) + coord_flip()+theme(legend.position="none")+labs(x = "Zona de destino", y = "Poroporci�n de turistas")+ theme_classic() 
 ```
 
-VISITANTES INGRESADOS A URUGUAY, POR NACIONALIDAD, ESTADÍA Y GASTO
+
+VISITANTES INGRESADOS A URUGUAY, POR NACIONALIDAD, ESTADIA Y GASTO
 
 ```{r,echo= FALSE, results='asis'} 
 
@@ -92,7 +86,7 @@ print(xtable(nacionalidad))
  
 ```
 
-VISITANTES INGRESADOS A URUGUAY, POR ALOJAMIENTO UTILIZADO, ESTADÍA Y GASTO
+VISITANTES INGRESADOS A URUGUAY, POR ALOJAMIENTO UTILIZADO, ESTADIA Y GASTO
 
 ```{r,echo= FALSE, results='asis'} 
 
@@ -105,7 +99,7 @@ print(xtable(alojamiento))
  
 ```
 
-VISITANTES INGRESADOS A URUGUAY, POR ZONA DE INGRESO, ESTADÍA Y GASTO
+VISITANTES INGRESADOS A URUGUAY, POR ZONA DE INGRESO, ESTADIA Y GASTO
 
 ```{r,echo=FALSE, results='asis'}
 options(xtable.comment = FALSE)
@@ -115,55 +109,3 @@ options(xtable.comment = FALSE)
  print(xtable(x))
  
 ```
-
-
-```{r,  warning=FALSE,message=FALSE,echo=TRUE}
-library(raster)
-
-uruguay <- getData("GADM", country = "UY", level = 0)
-
-uruguay_states <- getData("GADM", country = "UY", level = 1)
-
-uystates_UTM <-spTransform(uruguay_states, CRS("+init=EPSG:5383")) 
-NAME_1 <- uystates_UTM@data$NAME_1
-
-count <-   by_Destino %>% gruop_by(Destino) %>% select(n)
-
-count_df <- data.frame(NAME_1, count)
-
-uystates_UTM@data$id <- rownames(uystates_UTM@data)
-uystates_UTM@data <- plyr::join(uystates_UTM@data, count_df, by="NAME_1")
-uystates_df <- fortify(uystates_UTM)
-uystates_df <- plyr::join(uystates_df,uystates_UTM@data, by="id")
-
-uystates_df <-uystates_df %>% filter(!(NAME_1=="Rivera"& lat<6400000)) #un error en el mapa que hay que sacar
-theme_opts <- list(theme(panel.grid.minor = element_blank(),
-panel.grid.major = element_blank(),
-panel.background = element_blank(),
-plot.background = element_blank(),
-axis.line = element_blank(),
-axis.text.x = element_blank(),
-axis.text.y = element_blank(),
-axis.ticks = element_blank(),
-axis.title.x = element_blank(),
-axis.title.y = element_blank(),
-plot.title = element_blank()))
-```
-
-
-```{r}
-
-countunique <-uystates_df %>%
-group_by(NAME_1) %>%
-summarise(mlong = mean(long), mlat = mean(lat))
-
-
-ggplot() + 
-geom_polygon(data = uystates_df, aes(x = long, y = lat, group = group, fill =
-count), color = "black", size = 0.25) +
-geom_text(data =countunique ,aes(label = round(count,2), x = mlong, y = mlat))+
-theme(aspect.ratio = 1) + labs(fill = "Cantidad")+
-scale_fill_gradient2( midpoint = mean(count)) +
-theme_opts 
-```
-
