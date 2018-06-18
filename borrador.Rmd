@@ -1,10 +1,10 @@
 ---
-title: "borrador"
+title: "Turismo Receptivo Uruguayo"
 output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(fig.width=5, fig.height=5)
 ```
 ###__Introducción__
 
@@ -56,7 +56,7 @@ na.omit(2015)
 ```
 
 
-```{r, echo=FALSE, results='asis', fig.height=5 , fig.width= 5}
+```{r, echo=FALSE, results='asis'}
 
 options(xtable.comment = FALSE)
 
@@ -74,11 +74,12 @@ count <- by_Destino %>% dplyr::select(Destino,n)
 
 __Algunos Resultados__
 
-```{r, echo=FALSE, fig.cap= "Proporción de visitantes ingresados a Uruguay según zona de destino"}
+```{r, echo=FALSE, fig.aline = "center", fig.height = 4, fig.width = 4,out.width = "3.5in",  fig.cap= "Proporción de visitantes ingresados a Uruguay según zona de destino"}
 
 x <- destino %>% select(Destino,value) %>% gather(Destino,value)
 
 x %>% ggplot() + geom_col(aes(x=fct_reorder(Destino,value, .desc = TRUE), y= value), fill="green") + coord_flip()+theme(legend.position="none")+labs(x = "Zona de destino", y = "Poroporción de visitantes")+ theme_classic() 
+
 ```
 
 ```{r, echo=FALSE, results='asis'}
@@ -91,7 +92,7 @@ nacionalidad <-  by_Nacio %>% mutate(Gastos_P = Gastos/n) %>% mutate(Gastos_PDia
 
 ```
 
-```{r,echo=FALSE, fig.cap= "Proporción de visitantes ingresados a Uruguay según Nacionalidad"}
+```{r,echo=FALSE, fig.aline = "center", fig.height = 4, fig.width = 4,out.width = "3.5in",  fig.cap= "Proporción de visitantes ingresados a Uruguay según Nacionalidad"}
 
 y <- by_Nacio %>% select(NACIONALIDAD,value) %>% gather(NACIONALIDAD,value)
 
@@ -114,11 +115,11 @@ count <- by_movil %>% dplyr::select(TransIn,n)
 
 
 
-```{r, echo=FALSE, fig.cap= "Proporción de visitantes ingresados a Uruguay según medio de ingreso al país"}
+```{r, echo=FALSE,  fig.aline = "center", fig.height = 4, fig.width = 4,out.width = "3.5in", fig.cap= "Proporción de visitantes ingresados a Uruguay según medio de ingreso al país"}
 
 z <- by_movil %>% select(TransIn,value) %>% gather(TransIn,value)
 
-z %>% ggplot() + geom_col(aes(x=fct_reorder(TransIn,value, .desc = FALSE), y= value), fill="orange") +theme(legend.position="none")+labs(x = "Transporte mediante el cual ingresó al país", y = "Proporción de visitantes")+ theme_classic()
+z %>% ggplot() + geom_col(aes(x=fct_reorder(TransIn,value, .desc = FALSE), y= value), fill="orange") +theme(legend.position="none")+labs(x = "Transporte mediante el cual ingresó al país", y = "Proporción de visitantes")+ theme_classic()+ coord_flip()
  
 ```
 
@@ -132,11 +133,11 @@ by_motivo <- B2015  %>%  mutate(MOTIVO= ifelse(Motivo %in% c("Ocio y Vacaciones.
 ```
 
 
-```{r, echo=FALSE, fig.cap= "Proporción de visitantes ingresados a Uruguay según motivo de ingreso al país"}
+```{r, echo=FALSE, fig.aline = "center", fig.height = 4, fig.width = 4,out.width = "3.5in", fig.cap= "Proporción de visitantes ingresados a Uruguay según motivo de ingreso al país"}
 
 p <- by_motivo %>% select(MOTIVO,value) %>% gather(MOTIVO,value)
 
-p %>% ggplot() + geom_col(aes(x=fct_reorder(MOTIVO,value, .desc = TRUE), y= value)) +theme(legend.position="none")+labs(x = "Motivo de ingresó al país", y = "Proporción de visitantes")+ theme_classic() + coord_flip()
+p %>% ggplot() + geom_col(aes(x=fct_reorder(MOTIVO,value, .desc = TRUE), y= value)) +theme(legend.position="none")+labs(x = "Motivo de ingreso al país", y = "Proporción de visitantes")+ theme_classic() + coord_flip()
 
 
 ```
@@ -151,7 +152,7 @@ by_aloja <- B2015 %>% mutate(ALOJA =ifelse(Aloja %in% c("Holtel 1/2", "Hotel 3",
 ```
 
 
-```{r, echo=FALSE, fig.cap= "Proporción de visitantes ingresados a Uruguay según alojamiento utilizado durante su estadía en el país"}
+```{r, echo=FALSE,  fig.aline = "center", fig.height = 4, fig.width = 7,out.width = "3.5in",  fig.cap= "Proporción de visitantes ingresados a Uruguay según alojamiento utilizado durante su estadía en el país"}
 
 r <- by_aloja %>% select(ALOJA,value) %>% gather(ALOJA,value)
 
