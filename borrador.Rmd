@@ -1,6 +1,8 @@
 ---
 title: "Turismo Receptivo Uruguayo"
-output: pdf_document
+output:
+  pdf_document: default
+  word_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -56,6 +58,69 @@ __Preguntas de Investigación__
 5.	¿En qué tipo de alojamientos se hospedan con mayor frecuencia?
 6.	¿Existe diferencia en cuanto a cómo organizan sus viajes jóvenes y los adultos?
 
+__Metodología de investigación__
+
+Se realizó un estudio descriptivo de corte transversal  mediante el análisis de las  encuestas realizadas a los visitantes que ingresaron a Uruguay durante el periodo 2014-2015. Dichas encuestas fueron llevadas a cabo por agentes del Ministerio de Turismo del Uruguay. Inicialmente se pretendía la utilización de una serie temporal de mayor amplitud pero debido a que lasla encuesta fue modificada luego del año 2013 
+
+Los datos se encuentran disponibles en el portal de datos abiertos del [Ministerio de Turismo](http://mintur.gub.uy/index.php/estadisticas/turismo-receptivo)
+
+
+__Principales variables:__
+
+*	__Entro__: Punto de ingreso al país
+*	__TransIn__: Transporte usado en el ingreso 
+*	__FecIng__: Fecha de ingreso al país
+*	__FecSal__: Fecha de salida del país
+*	__Nac__: Nacionalidad del entrevistado
+*	__Ciudad__: Zona de residencia del entrevistado
+*	__Motivo__: Motivo de viaje
+*	__Gente__: Cantidad de personas en el grupo encuestado
+*	__Ocupa__: Ocupación del encuestado
+*	__NivEst__: Último nivel de estudio alcanzado
+*	__Depto__: Departamento de destino principal
+*	__Aloja__: Alojamiento utilizado
+*	__Organizo__: Cómo organizó el viaje
+*	__GTotal__: Gasto Total
+*	__Destino__: Zona de Destino
+*	__coef__: Coeficiente de ponderación
+
+[__Glosario de conceptos sobre turismo__](http://media.unwto.org/es/content/entender-el-turismo-glosario-basico#Motivo)
+
+__Grupo de viaje__
+Un grupo de viaje se define como visitantes que realizan juntos un viaje y comparten los gastos vinculados con el mismo.
+
+__Gasto turístico__ 
+El gasto turístico hace referencia a la suma pagada por la adquisición de bienes y servicios de consumo, y de objetos valiosos, para uso propio o para regalar, durante los viajes turísticos y para los mismos.
+
+__Excursionista (o visitante del día)__
+Un visitante (interno, receptor o emisor) se clasifica como turista (o visitante que pernocta), si su viaje incluye una pernoctación, o como visitante del día (o excursionista) en caso contrario.
+Destino (destino principal) de un viaje 
+El destino principal de un viaje turístico es el lugar visitado que es fundamental para la decisión de realizar el viaje. 
+
+__Turismo internacional__ 
+El turismo internacional incluye el turismo receptor y el turismo emisor, es decir, las actividades realizadas por los visitantes residentes fuera del país de referencia, como parte de sus viajes turísticos internos o emisores, y las actividades realizadas por los visitantes no residentes en el país de referencia, como parte de sus viajes turísticos receptores.
+
+__Turismo receptor__  
+Engloba las actividades realizadas por un visitante no residente en el país de referencia, como parte de un viaje turístico receptor.
+
+__Turismo emisor__ 
+El turismo emisor abarca las actividades realizadas por un visitante residente fuera del país de referencia, como parte de un viaje turístico emisor o de un viaje turístico interno.
+
+__Turismo interior__ 
+El turismo interior engloba el turismo interno y el turismo receptor, a saber, las actividades realizadas por los visitantes residentes y no residentes en el país de referencia, como parte de sus viajes turísticos internos o internacionales.
+
+
+__Turista (o visitante que pernocta)__ 
+Un visitante (interno, receptor o emisor) se clasifica como turista (o visitante que pernocta), si su viaje incluye una pernoctación.
+
+__Visita__
+Un viaje se compone de visitas a diferentes lugares. El término "visita turística" hace referencia a una estancia en un lugar visitado durante un viaje turístico.
+
+__Vistante__ 
+Un visitante es una persona que viaja a un destino principal distinto al de su entorno habitual, por una duración inferior a un año, con cualquier finalidad principal (ocio, negocios u otro motivo personal) que no sea la de ser empleado por una entidad residente en el país o lugar visitados. Un visitante (interno, receptor o emisor) se clasifica como turista (o visitante que pernocta), si su viaje incluye una pernoctación, o como visitante del día (o excursionista) en caso contrario.
+
+__Visitante de negocios__
+Un visitante de negocios es un visitante para el que los negocios y motivos profesionales son el motivo principal de un viaje turístico.
 
 
 
