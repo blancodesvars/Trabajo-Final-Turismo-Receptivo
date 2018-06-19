@@ -1,6 +1,6 @@
 ---
 title: "Turismo Receptivo Uruguayo"
-output: pdf_document 
+output:  pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -59,7 +59,8 @@ __Preguntas de Investigación__
 
 __Metodología de investigación__
 
-Se realizó un estudio descriptivo de corte transversal  mediante el análisis de las  encuestas realizadas a los visitantes que ingresaron a Uruguay durante el periodo 2014-2015. Dichas encuestas fueron llevadas a cabo por agentes del Ministerio de Turismo del Uruguay. Inicialmente se pretendía la utilización de una serie temporal de mayor amplitud pero debido a que lasla encuesta fue modificada luego del año 2013 
+
+Se realizó un estudio descriptivo de corte transversal  mediante el análisis de la Encuesta de Turismo Receptivo y Dirección Nacional de Migración realizada a los visitantes que ingresaron a Uruguay durante el año 2015. Dicha encuesta fué llevada a cabo por agentes del Ministerio de Turismo del Uruguay. Inicialmente se pretendía la utilización de una serie temporal de al menos 5 años pero debido a que el cuestionario fue modificado y con él las variables, además teniendo en cuenta que el objetivo del presente proyecto  es la aplicación de técnicas estadísticas e informáticas, se decidió utilizar el año 2015 como base para luego extender el anális a los demás años en un trabajo posterior.
 
 Los datos se encuentran disponibles en el portal de datos abiertos del [Ministerio de Turismo](http://mintur.gub.uy/index.php/estadisticas/turismo-receptivo)
 
@@ -147,13 +148,19 @@ str(B2015)
 
 ```
 
-```{r,fig.aline = "center", fig.height = 5, fig.width = 7,out.width = "6.5in",  fig.cap= "Gastos totales incurridos por turistas segun el mes durante el año 2015", echo=FALSE}
+```{r,fig.aline = "center", fig.height = 5, fig.width = 7,out.width = "5.5in",  fig.cap= "Gastos totales incurridos por turistas segun el mes durante el año 2015", echo=FALSE}
 
 by_Destino <- B2015  %>%  mutate(Gasto= GTotal*coef) %>% select(Gasto, Mes) %>% group_by(Mes) %>% summarise(Gastos= sum(Gasto))
 
 by_Destino %>% ggplot(aes(x=Mes, y=Gastos)) + geom_point() +geom_line()+ scale_x_continuous(breaks = c(1,2,3,4,5,6,7,8,9,10,11,12), labels =c("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Setiembre","Octubre","Noviembre","Diciembre")) +theme(axis.text.x = element_text(angle = 90))+ labs(x="Mes", y="Gastos totales incurridos por los turistas")
 
 ```
+
+Como era de esperarse el periodo con mayor ingresos es el verano, esto se debe a que Uruguay es un país cuyo atractivo radica en sus playas y el mar. Los ingresos por motivos de turismo alcanzaron su punto máximo durante el mes de enero con un valor de " " dólares.A excepción de un pico inusual en el mes de Julio se observa una tendecia decreciente hasta Agosto que posteriormente aumenta hasta llegar en el siguiente año de nuevo a su pico máximo . 
+
+
+
+
 
 __VISITANTES INGRESADOS A URUGUAY, POR ZONA DE DESTINO, ESTADÍA Y GASTO.__
 ```{r, echo=FALSE, results='asis', warning=FALSE, eval=TRUE}
@@ -178,6 +185,9 @@ print(B, caption = strCaption, label = "", include.rownames = FALSE,include.coln
 
 ```
 
+El principal destino durante el año fué Montevideo mientras que la mayor cantidad de ingresos la generó Punta del Este.
+
+
 
 
 ```{r, echo=FALSE, fig.aline = "center", fig.height = 4, fig.width = 4,out.width = "3.5in",  fig.cap= "Proporción de visitantes ingresados a Uruguay según zona de destino"}
@@ -187,6 +197,8 @@ x <- destino %>% select(Destino,value) %>% gather(Destino,value)
 x %>% ggplot() + geom_col(aes(x=fct_reorder(Destino,value, .desc = TRUE), y= value), fill="green") + coord_flip()+theme(legend.position="none")+labs(x = "Zona de destino", y = "Proporción de visitantes")+ theme_classic() 
 
 ```
+
+
 
 
 __VISITANTES INGRESADOS A URUGUAY, POR NACIONALIDAD, ESTADÍA Y GASTO__
@@ -209,12 +221,15 @@ print(i,include.rownames = FALSE,include.colnames = TRUE,caption.placement ="top
 
 ```
 
+
 ```{r,echo=FALSE, fig.aline = "center", fig.height = 4, fig.width = 4,out.width = "3.5in",  fig.cap= "Proporción de visitantes ingresados a Uruguay según Nacionalidad"}
 
 y <- by_Nacio2 %>% select(NACIONALIDAD,value) %>% gather(NACIONALIDAD,value)
 
 y %>% ggplot() + geom_col(aes(x=fct_reorder(NACIONALIDAD,value, .desc = TRUE), y= value), fill="blue") + coord_flip()+theme(legend.position="none")+labs(x = "Nacionalidad", y = "Proporción de visitantes")+ theme_classic() 
 ```
+
+El principal origen de los visitantes es Argentina, seguido de Brasil y luego uruguayos no residentes en el país. 
 
 ```{r, echo=FALSE, results='asis'}
 
