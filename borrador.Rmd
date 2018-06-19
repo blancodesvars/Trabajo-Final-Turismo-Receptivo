@@ -28,9 +28,34 @@ Debido a la forma en que el cerebro humano procesa la información, utilizar gráf
 
 Mediante la visualización de datos también se puede: identificar las áreas que necesitan atención o mejora, aclarar qué factores influyen en el comportamiento de turistas, ayuda a entender qué productos colocar en dónde y también a predecir volúmenes de ventas o ingresantes futuros.
 
-El objetivo de este proyecto es utilizar los datos disponibles de forma abierta en el portal http://mintur.gub.uy/index.php/estadisticas/base-de-datos y realizar un análisis exploratorio de los mismos para luego presentarlos de manera interactiva, ayudando de esa manera a otras personas interesadas en investigar con mayor profundidad el tema así como a aquellos usuarios que simplemente desean informarse sobre el mismo.
+En este proyecto utilizaremos los datos disponibles de forma abierta en el portal http://mintur.gub.uy/index.php/estadisticas/base-de-datos y realizar un análisis exploratorio de los mismos para luego presentarlos de manera interactiva, ayudando de esa manera a otras personas interesadas en investigar con mayor profundidad el tema así como a aquellos usuarios que simplemente desean informarse sobre el mismo.
 
 Específicamente trabajaremos con el turismo receptivo, que es el cual engloba las actividades realizadas por un visitante no residente en el país.
+
+__OBJETIVOS__
+
+__Objetivo General__
+
+* 	Aplicación de las herramientas y técnicas aprendidas durante la cátedra NUEVAS TECNOLOGÍAS PARA EL ANÁLISIS DE DATOS ESTADÍSTICOS  en la base de datos abiertos sobre turismo receptivo  del Ministerio de Turismo del Uruguay.
+
+__Objetivos Específicos__
+
+*	Realizar preguntas coherentes y responderlas con los gráficos o elementos adecuados.
+*	Utilización de librerías como dplyr, forcats, ggplot2, xtable y otras en un análisis estadístico.
+*	Redactar un trabajo completamente reproducible.
+*	Realizar un trabajo colaborativo mediante la plataforma Github
+* Realización de visualizaciones interactivas utilizando shiny
+
+
+__Preguntas de Investigación__
+
+1.	¿De entre los visitantes que ingresan al Uruguay, cuáles son  las nacionalidades predominantes?
+2.	¿Por qué motivos ingresan al país?
+3.	¿Cuáles son las principales zonas de interés de estos visitantes?
+4.	¿Cuál es el promedio de días que permanecen en el país los turistas?
+5.	¿En qué tipo de alojamientos se hospedan con mayor frecuencia?
+6.	¿Existe diferencia en cuanto a cómo organizan sus viajes jóvenes y los adultos?
+
 
 
 
