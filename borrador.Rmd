@@ -266,6 +266,7 @@ by_motivo <- B2015  %>%  mutate(MOTIVO= ifelse(Motivo %in% c("Ocio y Vacaciones.
 
 ```
 
+El 60.5% de los visitantes que ingresaron al país declararon hacerlo por motivo de ocio y vacaciones mientras que el 19.2% por visitar a familiares y amigos.
 
 ```{r, echo=FALSE, fig.aline = "center", fig.height = 4, fig.width = 4,out.width = "3.5in", fig.cap= "Proporción de visitantes ingresados a Uruguay según motivo de ingreso al país"}
 
@@ -295,6 +296,7 @@ print(e,include.rownames = FALSE,include.colnames = TRUE,caption.placement ="top
 
 ```
 
+EL 31,3%  de los visitantes que ingresaron al país se alojó en Hoteles, seguido del 27,5% que se alojó en  viviendas de familiares o amigos residentes en el país. El 6,2% de los visitantes no utilizó ningún tipo de alojamiento.
 
 ```{r, echo=FALSE,  fig.aline = "center", fig.height = 4, fig.width = 7,out.width = "4.5in",  fig.cap= "Proporción de visitantes ingresados a Uruguay según alojamiento utilizado durante su estadía en el país"}
 
