@@ -174,7 +174,7 @@ count <- by_Destino %>% dplyr::select(Destino,n)
 
 x <- destino %>% select(Destino,value) %>% gather(Destino,value)
 
-x %>% ggplot() + geom_col(aes(x=fct_reorder(Destino,value, .desc = TRUE), y= value), fill="green") + coord_flip()+theme(legend.position="none")+labs(x = "Zona de destino", y = "Poroporción de visitantes")+ theme_classic() 
+x %>% ggplot() + geom_col(aes(x=fct_reorder(Destino,value, .desc = TRUE), y= value), fill="green") + coord_flip()+theme(legend.position="none")+labs(x = "Zona de destino", y = "Proporción de visitantes")+ theme_classic() 
 
 ```
 
