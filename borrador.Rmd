@@ -156,14 +156,18 @@ by_Destino %>% ggplot(aes(x=Mes, y=Gastos)) + geom_point() +geom_line()+ scale_x
 
 options(xtable.comment = FALSE)
 
-by_Destino <- B2015  %>%  mutate(Gasto= GTotal*coef) %>% mutate(Gente1= Gente*coef)%>% select(Destino, Gente1, Estadia, Gasto) %>% group_by(Destino) %>% summarise(n= round(sum(Gente1)), dias= weighted.mean(Estadia, Gente1), Gastos= sum(Gasto))
+by_Destino <- B2015  %>%  mutate(Gasto= GTotal*coef) %>% mutate(Gente1= Gente*coef)%>% select(Destino, Gente1, Estadia, Gasto) %>% group_by(Destino) %>% summarise(n= round(sum(Gente1)), dias= weighted.mean(Estadia, Gente1), Gastos= round(sum(Gasto)))
 
 
 destino <-  by_Destino %>% mutate(Gastos_P = Gastos/n) %>% mutate(Gastos_PDia = Gastos_P/dias ) %>% mutate(value = (n/sum(n))*100) 
 
-destinop <-  by_Destino %>% mutate(Gastos_P = Gastos/n) %>% mutate(Gastos_PDia = Gastos_P/dias )%>% xtable()
+destinop <-  by_Destino %>% mutate(Gastos_P = round(Gastos/n)) %>% mutate(Gastos_PDia = round(Gastos_P/dias) )%>% xtable()
 
-print(xtable(destinop))
+B <- xtable(destinop)
+align(B) <- xalign(B)
+digits(B) <- xdigits(B)
+display(B) <- xdisplay(B)
+print(B)
 
 
 ```
