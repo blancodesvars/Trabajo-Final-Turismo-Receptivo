@@ -143,6 +143,14 @@ na.omit(2015)
 
 ```
 
+```{r,fig.aline = "center", fig.height = 5, fig.width = 7,out.width = "6.5in",  fig.cap= "Gastos totales incurridos por turistas segun el mes durante el año 2015", echo=FALSE}
+
+by_Destino <- B2015  %>%  mutate(Gasto= GTotal*coef) %>% select(Gasto, Mes) %>% group_by(Mes) %>% summarise(Gastos= sum(Gasto))
+
+by_Destino %>% ggplot(aes(x=Mes, y=Gastos)) + geom_point() +geom_line()+ scale_x_continuous(breaks = c(1,2,3,4,5,6,7,8,9,10,11,12), labels =c("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Setiembre","Octubre","Noviembre","Diciembre")) +theme(axis.text.x = element_text(angle = 90))+ labs(x="Mes", y="Gastos totales incurridos por los turistas")
+
+```
+
 
 ```{r, echo=FALSE, results='asis'}
 
@@ -160,7 +168,7 @@ count <- by_Destino %>% dplyr::select(Destino,n)
 
 ```
 
-__Algunos Resultados__
+
 
 ```{r, echo=FALSE, fig.aline = "center", fig.height = 4, fig.width = 4,out.width = "3.5in",  fig.cap= "Proporción de visitantes ingresados a Uruguay según zona de destino"}
 
