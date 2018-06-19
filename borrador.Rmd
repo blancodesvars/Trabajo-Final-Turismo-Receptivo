@@ -148,6 +148,8 @@ str(B2015)
 
 ```
 
+Como era de esperarse el periodo con mayor ingresos es el verano, esto se debe a que Uruguay es un país cuyo atractivo radica en sus playas y el mar. Los ingresos por motivos de turismo alcanzaron su punto máximo durante el mes de enero con un valor de " " dólares.A excepción de un pico inusual en el mes de Julio se observa una tendecia decreciente hasta Agosto que posteriormente aumenta hasta llegar en el siguiente año de nuevo a su pico máximo .
+
 ```{r,fig.aline = "center", fig.height = 5, fig.width = 7,out.width = "5.5in",  fig.cap= "Gastos totales incurridos por turistas segun el mes durante el año 2015", echo=FALSE}
 
 by_Destino <- B2015  %>%  mutate(Gasto= GTotal*coef) %>% select(Gasto, Mes) %>% group_by(Mes) %>% summarise(Gastos= sum(Gasto))
@@ -155,8 +157,6 @@ by_Destino <- B2015  %>%  mutate(Gasto= GTotal*coef) %>% select(Gasto, Mes) %>% 
 by_Destino %>% ggplot(aes(x=Mes, y=Gastos)) + geom_point() +geom_line()+ scale_x_continuous(breaks = c(1,2,3,4,5,6,7,8,9,10,11,12), labels =c("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Setiembre","Octubre","Noviembre","Diciembre")) +theme(axis.text.x = element_text(angle = 90))+ labs(x="Mes", y="Gastos totales incurridos por los turistas")
 
 ```
-
-Como era de esperarse el periodo con mayor ingresos es el verano, esto se debe a que Uruguay es un país cuyo atractivo radica en sus playas y el mar. Los ingresos por motivos de turismo alcanzaron su punto máximo durante el mes de enero con un valor de " " dólares.A excepción de un pico inusual en el mes de Julio se observa una tendecia decreciente hasta Agosto que posteriormente aumenta hasta llegar en el siguiente año de nuevo a su pico máximo . 
 
 
 
@@ -172,6 +172,7 @@ by_Destino <- B2015  %>%  mutate(Gasto= GTotal*coef) %>% mutate(Gente1= Gente*co
 
 destino <-  by_Destino %>% mutate(Gastos_P = Gastos/n) %>% mutate(Gastos_PDia = Gastos_P/dias ) %>% mutate(value = (n/sum(n))*100) 
 
+
 destinop <-  by_Destino %>% mutate(Gastos_P = round(Gastos/n)) %>% mutate(Gastos_PDia = round(Gastos_P/dias) )%>% xtable()
 
 strCaption <- "\\textbf{Supplementary Table 1..}"
@@ -185,7 +186,7 @@ print(B, caption = strCaption, label = "", include.rownames = FALSE,include.coln
 
 ```
 
-El principal destino durante el año fué Montevideo mientras que la mayor cantidad de ingresos la generó Punta del Este.
+El principal destino fue Montevideo superando las 935mil visitas en el año, seguido de Punta  del Este con más de 620mil visitas, en tercer lugar tenemos el Litoral Termal con 424mil visitas. En lo que respecta a ingresos en dólares, Punta del Este ocupa el primer lugar alcanzando un monto mayor a 746 millones durante el año, seguido de Montevideo con más de 572 millones.
 
 
 
@@ -221,6 +222,7 @@ print(i,include.rownames = FALSE,include.colnames = TRUE,caption.placement ="top
 
 ```
 
+El principal origen de los visitantes es Argentina representando al 57,6%, seguido de Brasil con el 14,5% y luego uruguayos no residentes en el país con el 13,1%.
 
 ```{r,echo=FALSE, fig.aline = "center", fig.height = 4, fig.width = 4,out.width = "3.5in",  fig.cap= "Proporción de visitantes ingresados a Uruguay según Nacionalidad"}
 
@@ -229,7 +231,6 @@ y <- by_Nacio2 %>% select(NACIONALIDAD,value) %>% gather(NACIONALIDAD,value)
 y %>% ggplot() + geom_col(aes(x=fct_reorder(NACIONALIDAD,value, .desc = TRUE), y= value), fill="blue") + coord_flip()+theme(legend.position="none")+labs(x = "Nacionalidad", y = "Proporción de visitantes")+ theme_classic() 
 ```
 
-El principal origen de los visitantes es Argentina, seguido de Brasil y luego uruguayos no residentes en el país. 
 
 ```{r, echo=FALSE, results='asis'}
 
@@ -245,7 +246,7 @@ count <- by_movil %>% dplyr::select(TransIn,n)
 
 ```
 
-
+En cuanto al medio de transporte mediante el cual ingresaron a l país, el 44,5% lo hizo en automóvil  y 33,3% por medio marítimo, lo cual no es de extrañarse puesto que casi  el 80% de los visitantes son de países limítrofes y  en su mayoría argentinos cuyo  fácil acceso a empresas como Buquebus o Colonia Express influyen notablemente en este porcentaje.
 
 ```{r, echo=FALSE,  fig.aline = "center", fig.height = 4, fig.width = 4,out.width = "3.5in", fig.cap= "Proporción de visitantes ingresados a Uruguay según medio de ingreso al país"}
 
@@ -261,6 +262,7 @@ z %>% ggplot() + geom_col(aes(x=fct_reorder(TransIn,value, .desc = FALSE), y= va
 options(xtable.comment = FALSE)
 
 by_motivo <- B2015  %>%  mutate(MOTIVO= ifelse(Motivo %in% c("Ocio y Vacaciones."),"Ocio y Vacaciones",ifelse(Motivo %in% c("Visita Fliares. y Amigos"),"Visita Fliares. y Amigos",ifelse(Motivo %in% c("Trabajo/Profesional"),"Trabajo/Profesional",ifelse(Motivo %in% c("Transito"),"Transito", ifelse(Motivo %in% c("2da. Residencia"),"2da. Residencia", "Otros")))))) %>% dplyr::mutate(Gasto= GTotal*coef) %>% dplyr::mutate(Gente1= Gente*coef)%>% dplyr::mutate(Gente2= Gente*coeftot) %>% dplyr::select(MOTIVO, Gente1,Gente2, Estadia, Gasto) %>% group_by(MOTIVO) %>% summarise(n= round(sum(Gente1)), dias= weighted.mean(Estadia, Gente1), Gastos= sum(Gasto)) %>% mutate(value = (n/sum(n))*100)
+
 
 ```
 
@@ -279,7 +281,7 @@ __VISITANTES INGRESADOS A URUGUAY, POR ALOJAMIENTO UTILIZADO, ESTADÍA Y GASTO__
 
 options(xtable.comment = FALSE)
 
-by_aloja <- B2015 %>% mutate(ALOJA =ifelse(Aloja %in% c("Holtel 1/2", "Hotel 3", "Hotel 4", "Hotel 5", "Hotel sin categorizar"), "Hotel", ifelse (Aloja %in% c("Vivienda propia"), "Vivienda propia", ifelse(Aloja %in% c("Vivienda arrendada"), "Vivienda arrendada", ifelse(Aloja %in% c("Viv. FLiares."),"Viviendas Familiares o amigos residentes", ifelse( Aloja %in% c("Vivienda Fliares. no residentes"), "Viviendas Familiares o amigos no residentes", ifelse(Aloja %in% c("Camping"), "Camping", ifelse (Aloja %in% c("Cabañas, Bungalow"), "Cabañas, Bungalow", ifelse (Aloja %in% c("Apart Hotel"), "Apart Hotel",ifelse (Aloja %in% c("Ninguno"), "Sin alojamiento", ifelse (Aloja %in% c("Tiempo Compartido"), "Tiempo Compartido", ifelse (Aloja %in% c("Estancia turistica"), "Estancia turistica", ifelse(Aloja %in% c("Hostel"), "Hostal,Hostel, Albergue", "Otros-Sin Datos"))))))))))))) %>% dplyr::mutate(Gasto= GTotal*coef) %>% dplyr::mutate(Gente1= Gente*coef)%>% dplyr::mutate(Gente2= Gente*coeftot) %>% dplyr::select(ALOJA, Gente1,Gente2, Estadia, Gasto) %>% group_by(ALOJA) %>% summarise(n= round(sum(Gente1)), dias= weighted.mean(Estadia, Gente1), Gastos= sum(Gasto)) 
+by_aloja <- B2015 %>% mutate(ALOJA =ifelse(Aloja %in% c("Holtel 1/2", "Hotel 3", "Hotel 4", "Hotel 5", "Hotel sin categorizar"), "Hotel", ifelse (Aloja %in% c("Vivienda propia"), "Vivienda propia", ifelse(Aloja %in% c("Vivienda arrendada"), "Vivienda arrendada", ifelse(Aloja %in% c("Viv. FLiares."),"Viv. Familiares/amigos residentes", ifelse( Aloja %in% c("Vivienda Fliares. no residentes"), "Viv. Familiares/amigos no residentes", ifelse(Aloja %in% c("Camping"), "Camping", ifelse (Aloja %in% c("Cabañas, Bungalow"), "Cabañas, Bungalow", ifelse (Aloja %in% c("Apart Hotel"), "Apart Hotel",ifelse (Aloja %in% c("Ninguno"), "Sin alojamiento", ifelse (Aloja %in% c("Tiempo Compartido"), "Tiempo Compartido", ifelse (Aloja %in% c("Estancia turistica"), "Estancia turistica", ifelse(Aloja %in% c("Hostel"), "Hostal,Hostel, Albergue", "Otros-Sin Datos"))))))))))))) %>% dplyr::mutate(Gasto= GTotal*coef) %>% dplyr::mutate(Gente1= Gente*coef)%>% dplyr::mutate(Gente2= Gente*coeftot) %>% dplyr::select(ALOJA, Gente1,Gente2, Estadia, Gasto) %>% group_by(ALOJA) %>% summarise(n= round(sum(Gente1)), dias= weighted.mean(Estadia, Gente1), Gastos= sum(Gasto)) 
 
 by_aloja1 <- by_aloja %>% mutate(value = (n/sum(n))*100)
 
@@ -294,7 +296,7 @@ print(e,include.rownames = FALSE,include.colnames = TRUE,caption.placement ="top
 ```
 
 
-```{r, echo=FALSE,  fig.aline = "center", fig.height = 4, fig.width = 7,out.width = "3.5in",  fig.cap= "Proporción de visitantes ingresados a Uruguay según alojamiento utilizado durante su estadía en el país"}
+```{r, echo=FALSE,  fig.aline = "center", fig.height = 4, fig.width = 7,out.width = "4.5in",  fig.cap= "Proporción de visitantes ingresados a Uruguay según alojamiento utilizado durante su estadía en el país"}
 
 r <- by_aloja1 %>% select(ALOJA,value) %>% gather(ALOJA,value)
 
