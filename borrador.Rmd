@@ -159,11 +159,11 @@ options(xtable.comment = FALSE)
 by_Destino <- B2015  %>%  mutate(Gasto= GTotal*coef) %>% mutate(Gente1= Gente*coef)%>% select(Destino, Gente1, Estadia, Gasto) %>% group_by(Destino) %>% summarise(n= round(sum(Gente1)), dias= weighted.mean(Estadia, Gente1), Gastos= sum(Gasto))
 
 
-destino <-  by_Destino %>% mutate(Gastos_P = Gastos/n) %>% mutate(Gastos_PDia = Gastos_P/dias ) %>% mutate(value = (n/sum(n))*100) %>% xtable()
+destino <-  by_Destino %>% mutate(Gastos_P = Gastos/n) %>% mutate(Gastos_PDia = Gastos_P/dias ) %>% mutate(value = (n/sum(n))*100) 
 
-destino2 <-  by_Destino %>% dplyr::mutate(Porcentaje = (n/sum(n))*100)
+destinop <-  by_Destino %>% mutate(Gastos_P = Gastos/n) %>% mutate(Gastos_PDia = Gastos_P/dias )%>% xtable()
 
-count <- by_Destino %>% dplyr::select(Destino,n) 
+print(xtable(destinop))
 
 
 ```
