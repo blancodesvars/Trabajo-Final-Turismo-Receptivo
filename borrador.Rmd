@@ -54,7 +54,8 @@ __Preguntas de Investigación__
 3.	¿Cuáles son las principales zonas de interés de estos visitantes?
 4.	¿Cuál es el promedio de días que permanecen en el país los turistas?
 5.	¿En qué tipo de alojamientos se hospedan con mayor frecuencia?
-6.	¿Existe diferencia en cuanto a cómo organizan sus viajes jóvenes y los adultos?
+3.  ¿Como se comporta el Gasto con respecto al la nacionalidad, destino turistico y Alojamiento?
+
 
 __Metodología de investigación__
 
@@ -121,7 +122,7 @@ __Visitante de negocios__
 Un visitante de negocios es un visitante para el que los negocios y motivos profesionales son el motivo principal de un viaje turístico.
 
 
-
+__Análisis Exploratorio__
 
 
 
@@ -141,6 +142,9 @@ library(forcats)
 B2015 <- read.spss("D:\\Trabajo-Final-Turismo-Receptivo/R15.sav", to.data.frame = TRUE)
 na.omit(2015)
 
+dim(B2015)
+str(B2015)
+
 ```
 
 ```{r,fig.aline = "center", fig.height = 5, fig.width = 7,out.width = "6.5in",  fig.cap= "Gastos totales incurridos por turistas segun el mes durante el año 2015", echo=FALSE}
@@ -151,8 +155,8 @@ by_Destino %>% ggplot(aes(x=Mes, y=Gastos)) + geom_point() +geom_line()+ scale_x
 
 ```
 
-
-```{r, echo=FALSE, results='asis'}
+__VISITANTES INGRESADOS A URUGUAY, POR ZONA DE DESTINO, ESTADÍA Y GASTO.__
+```{r, echo=FALSE, results='asis', warning=FALSE, eval=TRUE}
 
 options(xtable.comment = FALSE)
 
@@ -163,11 +167,13 @@ destino <-  by_Destino %>% mutate(Gastos_P = Gastos/n) %>% mutate(Gastos_PDia = 
 
 destinop <-  by_Destino %>% mutate(Gastos_P = round(Gastos/n)) %>% mutate(Gastos_PDia = round(Gastos_P/dias) )%>% xtable()
 
+strCaption <- "\\textbf{Supplementary Table 1..}"
+
 B <- xtable(destinop)
 align(B) <- xalign(B)
 digits(B) <- xdigits(B)
 display(B) <- xdisplay(B)
-print(B)
+print(B, caption = strCaption, label = "", include.rownames = FALSE,include.colnames = TRUE, caption.placement ="top",comment=FALSE, floating=FALSE)
 
 
 ```
@@ -182,19 +188,30 @@ x %>% ggplot() + geom_col(aes(x=fct_reorder(Destino,value, .desc = TRUE), y= val
 
 ```
 
+
+__VISITANTES INGRESADOS A URUGUAY, POR NACIONALIDAD, ESTADÍA Y GASTO__
 ```{r, echo=FALSE, results='asis'}
 
 options(xtable.comment = FALSE)
 
-by_Nacio <- B2015  %>% mutate(NACIONALIDAD= ifelse(Nac %in% c("Argentina"),"Argentina",ifelse(Nac %in% c("Brasil" ),"Brasil",ifelse(Nac %in% c("Uruguay" ),"Uruguay",ifelse(Nac %in% c( "EEUU", "Chile", "Paraguay", "Colombia", "México", "Perú", "Otro país América", "Venezuela", "Ecuador", "Canadá", "Bolivia", "Cuba"),"Otro país América", ifelse(Nac %in% c("País de África u Oceanía"),"País de África u Oceanía",ifelse(Nac %in% c( "Otro país Asia","Israel","Japón", "China"),"Asia", "Europa" ))))))) %>% dplyr::mutate(Gasto= GTotal*coef) %>% dplyr::mutate(Gente1= Gente*coef)%>% dplyr::mutate(Gente2= Gente*coeftot) %>% dplyr::select(NACIONALIDAD, Gente1,Gente2, Estadia, Gasto) %>% group_by(NACIONALIDAD) %>% summarise(n= round(sum(Gente1)), dias= weighted.mean(Estadia, Gente1), Gastos= sum(Gasto)) %>% mutate(value = (n/sum(n))*100)
+by_Nacio <- B2015  %>% mutate(NACIONALIDAD= ifelse(Nac %in% c("Argentina"),"Argentina",ifelse(Nac %in% c("Brasil" ),"Brasil",ifelse(Nac %in% c("Uruguay" ),"Uruguay",ifelse(Nac %in% c( "EEUU", "Chile", "Paraguay", "Colombia", "México", "Perú", "Otro país América", "Venezuela", "Ecuador", "Canadá", "Bolivia", "Cuba"),"Otro país América", ifelse(Nac %in% c("País de África u Oceanía"),"País de África u Oceanía",ifelse(Nac %in% c( "Otro país Asia","Israel","Japón", "China"),"Asia", "Europa" ))))))) %>% dplyr::mutate(Gasto= GTotal*coef) %>% dplyr::mutate(Gente1= Gente*coef)%>% dplyr::mutate(Gente2= Gente*coeftot) %>% dplyr::select(NACIONALIDAD, Gente1,Gente2, Estadia, Gasto) %>% group_by(NACIONALIDAD) %>% summarise(n= round(sum(Gente1)), dias= weighted.mean(Estadia, Gente1), Gastos= round(sum(Gasto)))
 
-nacionalidad <-  by_Nacio %>% mutate(Gastos_P = Gastos/n) %>% mutate(Gastos_PDia = Gastos_P/dias ) %>% mutate(value = (n/sum(n))*100) %>% xtable()
+by_Nacio2 <- by_Nacio %>% mutate(value = (n/sum(n))*100)
+
+nacionalidad <-  by_Nacio %>% mutate(Gastos_P = Gastos/n) %>% mutate(Gastos_PDia = Gastos_P/dias ) %>% mutate(value = (n/sum(n))*100)
+
+naciop <-  by_Nacio %>% mutate(Gastos_P = round(Gastos/n)) %>% mutate(Gastos_PDia = round(Gastos_P/dias) )%>% xtable()
+i <- xtable(naciop)
+align(i) <- xalign(i)
+digits(i) <- xdigits(i)
+display(i) <- xdisplay(i)
+print(i,include.rownames = FALSE,include.colnames = TRUE,caption.placement ="top",comment=FALSE, floating=FALSE)
 
 ```
 
 ```{r,echo=FALSE, fig.aline = "center", fig.height = 4, fig.width = 4,out.width = "3.5in",  fig.cap= "Proporción de visitantes ingresados a Uruguay según Nacionalidad"}
 
-y <- by_Nacio %>% select(NACIONALIDAD,value) %>% gather(NACIONALIDAD,value)
+y <- by_Nacio2 %>% select(NACIONALIDAD,value) %>% gather(NACIONALIDAD,value)
 
 y %>% ggplot() + geom_col(aes(x=fct_reorder(NACIONALIDAD,value, .desc = TRUE), y= value), fill="blue") + coord_flip()+theme(legend.position="none")+labs(x = "Nacionalidad", y = "Proporción de visitantes")+ theme_classic() 
 ```
@@ -242,11 +259,21 @@ p %>% ggplot() + geom_col(aes(x=fct_reorder(MOTIVO,value, .desc = TRUE), y= valu
 
 ```
 
+__VISITANTES INGRESADOS A URUGUAY, POR ALOJAMIENTO UTILIZADO, ESTADÍA Y GASTO__
 ```{r, echo=FALSE, results='asis'}
 
 options(xtable.comment = FALSE)
 
-by_aloja <- B2015 %>% mutate(ALOJA =ifelse(Aloja %in% c("Holtel 1/2", "Hotel 3", "Hotel 4", "Hotel 5", "Hotel sin categorizar"), "Hotel", ifelse (Aloja %in% c("Vivienda propia"), "Vivienda propia", ifelse(Aloja %in% c("Vivienda arrendada"), "Vivienda arrendada", ifelse(Aloja %in% c("Viv. FLiares."),"Viviendas Familiares o amigos residentes", ifelse( Aloja %in% c("Vivienda Fliares. no residentes"), "Viviendas Familiares o amigos no residentes", ifelse(Aloja %in% c("Camping"), "Camping", ifelse (Aloja %in% c("Cabañas, Bungalow"), "Cabañas, Bungalow", ifelse (Aloja %in% c("Apart Hotel"), "Apart Hotel",ifelse (Aloja %in% c("Ninguno"), "Sin alojamiento", ifelse (Aloja %in% c("Tiempo Compartido"), "Tiempo Compartido", ifelse (Aloja %in% c("Estancia turistica"), "Estancia turistica", ifelse(Aloja %in% c("Hostel"), "Hostal,Hostel, Albergue", "Otros-Sin Datos"))))))))))))) %>% dplyr::mutate(Gasto= GTotal*coef) %>% dplyr::mutate(Gente1= Gente*coef)%>% dplyr::mutate(Gente2= Gente*coeftot) %>% dplyr::select(ALOJA, Gente1,Gente2, Estadia, Gasto) %>% group_by(ALOJA) %>% summarise(n= round(sum(Gente1)), dias= weighted.mean(Estadia, Gente1), Gastos= sum(Gasto)) %>% mutate(value = (n/sum(n))*100)
+by_aloja <- B2015 %>% mutate(ALOJA =ifelse(Aloja %in% c("Holtel 1/2", "Hotel 3", "Hotel 4", "Hotel 5", "Hotel sin categorizar"), "Hotel", ifelse (Aloja %in% c("Vivienda propia"), "Vivienda propia", ifelse(Aloja %in% c("Vivienda arrendada"), "Vivienda arrendada", ifelse(Aloja %in% c("Viv. FLiares."),"Viviendas Familiares o amigos residentes", ifelse( Aloja %in% c("Vivienda Fliares. no residentes"), "Viviendas Familiares o amigos no residentes", ifelse(Aloja %in% c("Camping"), "Camping", ifelse (Aloja %in% c("Cabañas, Bungalow"), "Cabañas, Bungalow", ifelse (Aloja %in% c("Apart Hotel"), "Apart Hotel",ifelse (Aloja %in% c("Ninguno"), "Sin alojamiento", ifelse (Aloja %in% c("Tiempo Compartido"), "Tiempo Compartido", ifelse (Aloja %in% c("Estancia turistica"), "Estancia turistica", ifelse(Aloja %in% c("Hostel"), "Hostal,Hostel, Albergue", "Otros-Sin Datos"))))))))))))) %>% dplyr::mutate(Gasto= GTotal*coef) %>% dplyr::mutate(Gente1= Gente*coef)%>% dplyr::mutate(Gente2= Gente*coeftot) %>% dplyr::select(ALOJA, Gente1,Gente2, Estadia, Gasto) %>% group_by(ALOJA) %>% summarise(n= round(sum(Gente1)), dias= weighted.mean(Estadia, Gente1), Gastos= sum(Gasto)) 
+
+by_aloja1 <- by_aloja %>% mutate(value = (n/sum(n))*100)
+
+naciop <-  by_aloja %>% mutate(Gastos_P = round(Gastos/n)) %>% mutate(Gastos_PDia = round(Gastos_P/dias) )%>% xtable()
+e <- xtable(naciop)
+align(e) <- xalign(e)
+digits(e) <- xdigits(e)
+display(e) <- xdisplay(e)
+print(e,include.rownames = FALSE,include.colnames = TRUE,caption.placement ="top",comment=FALSE, floating=FALSE)
 
 
 ```
@@ -254,7 +281,7 @@ by_aloja <- B2015 %>% mutate(ALOJA =ifelse(Aloja %in% c("Holtel 1/2", "Hotel 3",
 
 ```{r, echo=FALSE,  fig.aline = "center", fig.height = 4, fig.width = 7,out.width = "3.5in",  fig.cap= "Proporción de visitantes ingresados a Uruguay según alojamiento utilizado durante su estadía en el país"}
 
-r <- by_aloja %>% select(ALOJA,value) %>% gather(ALOJA,value)
+r <- by_aloja1 %>% select(ALOJA,value) %>% gather(ALOJA,value)
 
 r %>% ggplot() + geom_col(aes(x=fct_reorder(ALOJA,value, .desc = TRUE), y= value), fill= "Red") +theme(legend.position="none")+labs(x = "Alojamiento utilizado durante su estadía en el país", y = "Proporción de visitantes")+ theme_classic() + coord_flip()
 
