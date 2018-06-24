@@ -6,124 +6,124 @@ output:  pdf_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, fig.pos = 'hbpt', message = FALSE, warning = FALSE)
 ```
-###__Introducción__
+###__Introducci?n__
 
-El turismo es un fenómeno social, cultural y económico relacionado con el movimiento de personas a lugares que se encuentran fuera de su residencia habitual por motivos personales o de negocios/profesionales. Estas personas se denominan visitantes (pudiendo ser turistas o excursionistas; residentes o no residentes) y el turismo tiene que ver con sus actividades, de las cuales algunas implican un gasto turístico. El turismo receptivo, engloba las actividades realizadas por un visitante no residente en el país. 
+El turismo es un fen?meno social, cultural y econ?mico relacionado con el movimiento de personas a lugares que se encuentran fuera de su residencia habitual por motivos personales o de negocios/profesionales. Estas personas se denominan visitantes (pudiendo ser turistas o excursionistas; residentes o no residentes) y el turismo tiene que ver con sus actividades, de las cuales algunas implican un gasto tur?stico. El turismo receptivo, engloba las actividades realizadas por un visitante no residente en el pa?s. 
 
-Como tal, el turismo tiene efectos en la economía, en el entorno natural, en las zonas edificadas, en la población local de los lugares visitados y en los visitantes propiamente dichos. Debido a este impacto, son requeridos una gran variedad de factores de la producción para obtener los bienes y servicios a ser adquiridos por los visitantes y al amplio espectro de agentes involucrados o afectados por el turismo. Es necesario adoptar un enfoque global del desarrollo, la gestión y la supervisión del turismo. Este enfoque es muy recomendable  con miras a la formulación y puesta en práctica de políticas de turismo nacionales y locales, así como de acuerdos internacionales u otros procesos en materia de turismo. 
+Como tal, el turismo tiene efectos en la econom?a, en el entorno natural, en las zonas edificadas, en la poblaci?n local de los lugares visitados y en los visitantes propiamente dichos. Debido a este impacto, son requeridos una gran variedad de factores de la producci?n para obtener los bienes y servicios a ser adquiridos por los visitantes y al amplio espectro de agentes involucrados o afectados por el turismo. Es necesario adoptar un enfoque global del desarrollo, la gesti?n y la supervisi?n del turismo. Este enfoque es muy recomendable  con miras a la formulaci?n y puesta en pr?ctica de pol?ticas de turismo nacionales y locales, as? como de acuerdos internacionales u otros procesos en materia de turismo. 
 
-Desde hace poco más de doce años, la economía uruguaya ha mantenido un proceso de crecimiento sostenido, lo cual le ha permitido despegarse de los países de la región alcanzando el PIB per cápita más alto de América (información proveniente de CEPAL). En el año 2016 se computó un crecimiento de 1,5% en el Producto Interno Bruto (PIB). La inflación acumulada para el año 2017 se ubicó en 8,10% en términos interanuales.
+Desde hace poco m?s de doce a?os, la econom?a uruguaya ha mantenido un proceso de crecimiento sostenido, lo cual le ha permitido despegarse de los pa?ses de la regi?n alcanzando el PIB per c?pita m?s alto de Am?rica (informaci?n proveniente de CEPAL). En el a?o 2016 se comput? un crecimiento de 1,5% en el Producto Interno Bruto (PIB). La inflaci?n acumulada para el a?o 2017 se ubic? en 8,10% en t?rminos interanuales.
 
-El peso del turismo en el año 2016 alcanzó el 7,3% del PIB, siendo la actividad de mayor impacto en las exportaciones de servicios, superando el 60%, y representando el 22% de las exportaciones totales del país.
+El peso del turismo en el a?o 2016 alcanz? el 7,3% del PIB, siendo la actividad de mayor impacto en las exportaciones de servicios, superando el 60%, y representando el 22% de las exportaciones totales del pa?s.
 
-No queda duda de la importancia del turismo en un país como Uruguay, de hecho el Ministerio de Turismo Uruguayo cuenta con un portal web mediante el cual acceder a informes y bases de datos que remontan a hace más de 10 años, además de información sobre políticas y programas como INNOVATURISMO y otros, lo que facilita el acceso del público en general a los mismos. Pero si bien toda la información se encuentra al alcance de la mano, el formato en el que ésta se remite a los usuarios podría ser más efectivo.
+No queda duda de la importancia del turismo en un pa?s como Uruguay, de hecho el Ministerio de Turismo Uruguayo cuenta con un portal web mediante el cual acceder a informes y bases de datos que remontan a hace m?s de 10 a?os, adem?s de informaci?n sobre pol?ticas y programas como INNOVATURISMO y otros, lo que facilita el acceso del p?blico en general a los mismos. Pero si bien toda la informaci?n se encuentra al alcance de la mano, el formato en el que ?sta se remite a los usuarios podr?a ser m?s efectivo.
 
-A medida que pasan los años la cantidad de datos que generan las empresas y entes del estado aumenta en forma exponencial por lo que estas se ven en la necesidad de aprender a manejarlos, procesarlos pero por sobre todo de presentarlos en forma resumida y comprensible.
+A medida que pasan los a?os la cantidad de datos que generan las empresas y entes del estado aumenta en forma exponencial por lo que estas se ven en la necesidad de aprender a manejarlos, procesarlos pero por sobre todo de presentarlos en forma resumida y comprensible.
 
-La visualización de datos no es algo nuevo. A lo largo de la década de los noventa y principios de los 2000 los medios de comunicación y las empresas incorporaron los infográficos impresos como una forma más clarificadora de representar los números. La novedad radica en que el usuario pueda interactuar con tales visualizaciones, un hecho que han posibilitado tanto internet como los avances tecnológicos relacionados con la programación informática.
+La visualizaci?n de datos no es algo nuevo. A lo largo de la d?cada de los noventa y principios de los 2000 los medios de comunicaci?n y las empresas incorporaron los infogr?ficos impresos como una forma m?s clarificadora de representar los n?meros. La novedad radica en que el usuario pueda interactuar con tales visualizaciones, un hecho que han posibilitado tanto internet como los avances tecnol?gicos relacionados con la programaci?n inform?tica.
 
-Entendemos por visualización de datos la presentación de datos en un formato pictórico o gráfico, esta permite a los tomadores de decisiones ver los análisis presentados visualmente, para que puedan captar conceptos difíciles o identificar nuevos patrones. Con la visualización interactiva, puede tomar el concepto un paso más allá mediante el uso de la tecnología para profundizar en gráficos y obtener más detalles, interactivamente cambiar los datos que vea y cómo se procesan.
+Entendemos por visualizaci?n de datos la presentaci?n de datos en un formato pict?rico o gr?fico, esta permite a los tomadores de decisiones ver los an?lisis presentados visualmente, para que puedan captar conceptos dif?ciles o identificar nuevos patrones. Con la visualizaci?n interactiva, puede tomar el concepto un paso m?s all? mediante el uso de la tecnolog?a para profundizar en gr?ficos y obtener m?s detalles, interactivamente cambiar los datos que vea y c?mo se procesan.
 
-Debido a la forma en que el cerebro humano procesa la información, utilizar gráficos para visualizar grandes cantidades de datos complejos es más fácil que examinar las hojas de cálculo o los informes. La visualización de datos es una manera rápida y fácil de transmitir conceptos de una manera universal y poder experimentar con diferentes escenarios haciendo pequeños ajustes.
+Debido a la forma en que el cerebro humano procesa la informaci?n, utilizar gr?ficos para visualizar grandes cantidades de datos complejos es m?s f?cil que examinar las hojas de c?lculo o los informes. La visualizaci?n de datos es una manera r?pida y f?cil de transmitir conceptos de una manera universal y poder experimentar con diferentes escenarios haciendo peque?os ajustes.
 
-Mediante la visualización de datos también se puede: identificar las áreas que necesitan atención o mejora, aclarar qué factores influyen en el comportamiento de turistas, ayuda a entender qué productos colocar en dónde y también a predecir volúmenes de ventas o ingresantes futuros.
+Mediante la visualizaci?n de datos tambi?n se puede: identificar las ?reas que necesitan atenci?n o mejora, aclarar qu? factores influyen en el comportamiento de turistas, ayuda a entender qu? productos colocar en d?nde y tambi?n a predecir vol?menes de ventas o ingresantes futuros.
 
-En este proyecto utilizaremos los datos disponibles de forma abierta en el portal http://mintur.gub.uy/index.php/estadisticas/base-de-datos y realizar un análisis exploratorio de los mismos para luego presentarlos de manera interactiva, ayudando de esa manera a otras personas interesadas en investigar con mayor profundidad el tema así como a aquellos usuarios que simplemente desean informarse sobre el mismo.
+En este proyecto utilizaremos los datos disponibles de forma abierta en el portal http://mintur.gub.uy/index.php/estadisticas/base-de-datos y realizar un an?lisis exploratorio de los mismos para luego presentarlos de manera interactiva, ayudando de esa manera a otras personas interesadas en investigar con mayor profundidad el tema as? como a aquellos usuarios que simplemente desean informarse sobre el mismo.
 
-Específicamente trabajaremos con el turismo receptivo, que es el cual engloba las actividades realizadas por un visitante no residente en el país.
+Espec?ficamente trabajaremos con el turismo receptivo, que es el cual engloba las actividades realizadas por un visitante no residente en el pa?s.
 
 __OBJETIVOS__
 
 __Objetivo General__
 
-* 	Aplicación de las herramientas y técnicas aprendidas durante la cátedra NUEVAS TECNOLOGÍAS PARA EL ANÁLISIS DE DATOS ESTADÍSTICOS  en la base de datos abiertos sobre turismo receptivo  del Ministerio de Turismo del Uruguay.
+* 	Aplicaci?n de las herramientas y t?cnicas aprendidas durante la c?tedra NUEVAS TECNOLOG?AS PARA EL AN?LISIS DE DATOS ESTAD?STICOS  en la base de datos abiertos sobre turismo receptivo  del Ministerio de Turismo del Uruguay.
 
-__Objetivos Específicos__
+__Objetivos Espec?ficos__
 
-*	Realizar preguntas coherentes y responderlas con los gráficos o elementos adecuados.
-*	Utilización de librerías como dplyr, forcats, ggplot2, xtable y otras en un análisis estadístico.
+*	Realizar preguntas coherentes y responderlas con los gr?ficos o elementos adecuados.
+*	Utilizaci?n de librer?as como dplyr, forcats, ggplot2, xtable y otras en un an?lisis estad?stico.
 *	Redactar un trabajo completamente reproducible.
 *	Realizar un trabajo colaborativo mediante la plataforma Github
-* Realización de visualizaciones interactivas utilizando shiny
+* Realizaci?n de visualizaciones interactivas utilizando shiny
 
 
-__Preguntas de Investigación__
+__Preguntas de Investigaci?n__
 
-1.	¿De entre los visitantes que ingresan al Uruguay, cuáles son  las nacionalidades predominantes?
-2.	¿Por qué motivos ingresan al país?
-3.	¿Cuáles son las principales zonas de interés de estos visitantes?
-4.	¿Cuál es el promedio de días que permanecen en el país los turistas?
-5.	¿En qué tipo de alojamientos se hospedan con mayor frecuencia?
-3.  ¿Como se comporta el Gasto con respecto al la nacionalidad, destino turistico y Alojamiento?
-
-
-__Metodología de investigación__
+1.	?De entre los visitantes que ingresan al Uruguay, cu?les son  las nacionalidades predominantes?
+2.	?Por qu? motivos ingresan al pa?s?
+3.	?Cu?les son las principales zonas de inter?s de estos visitantes?
+4.	?Cu?l es el promedio de d?as que permanecen en el pa?s los turistas?
+5.	?En qu? tipo de alojamientos se hospedan con mayor frecuencia?
+3.  ?Como se comporta el Gasto con respecto al la nacionalidad, destino turistico y Alojamiento?
 
 
-Se realizó un estudio descriptivo de corte transversal  mediante el análisis de la Encuesta de Turismo Receptivo y Dirección Nacional de Migración realizada a los visitantes que ingresaron a Uruguay durante el año 2015. Dicha encuesta fué llevada a cabo por agentes del Ministerio de Turismo del Uruguay. Inicialmente se pretendía la utilización de una serie temporal de al menos 5 años pero debido a que el cuestionario fue modificado y con él las variables, además teniendo en cuenta que el objetivo del presente proyecto  es la aplicación de técnicas estadísticas e informáticas, se decidió utilizar el año 2015 como base para luego extender el anális a los demás años en un trabajo posterior.
+__Metodolog?a de investigaci?n__
+
+
+Se realiz? un estudio descriptivo de corte transversal  mediante el an?lisis de la Encuesta de Turismo Receptivo y Direcci?n Nacional de Migraci?n realizada a los visitantes que ingresaron a Uruguay durante el a?o 2015. Dicha encuesta fu? llevada a cabo por agentes del Ministerio de Turismo del Uruguay. Inicialmente se pretend?a la utilizaci?n de una serie temporal de al menos 5 a?os pero debido a que el cuestionario fue modificado y con ?l las variables, adem?s teniendo en cuenta que el objetivo del presente proyecto  es la aplicaci?n de t?cnicas estad?sticas e inform?ticas, se decidi? utilizar el a?o 2015 como base para luego extender el an?lis a los dem?s a?os en un trabajo posterior.
 
 Los datos se encuentran disponibles en el portal de datos abiertos del [Ministerio de Turismo](http://mintur.gub.uy/index.php/estadisticas/turismo-receptivo)
 
 
 __Principales variables:__
 
-*	__Entro__: Punto de ingreso al país
+*	__Entro__: Punto de ingreso al pa?s
 *	__TransIn__: Transporte usado en el ingreso 
-*	__FecIng__: Fecha de ingreso al país
-*	__FecSal__: Fecha de salida del país
+*	__FecIng__: Fecha de ingreso al pa?s
+*	__FecSal__: Fecha de salida del pa?s
 *	__Nac__: Nacionalidad del entrevistado
 *	__Ciudad__: Zona de residencia del entrevistado
 *	__Motivo__: Motivo de viaje
 *	__Gente__: Cantidad de personas en el grupo encuestado
-*	__Ocupa__: Ocupación del encuestado
-*	__NivEst__: Último nivel de estudio alcanzado
+*	__Ocupa__: Ocupaci?n del encuestado
+*	__NivEst__: ?ltimo nivel de estudio alcanzado
 *	__Depto__: Departamento de destino principal
 *	__Aloja__: Alojamiento utilizado
-*	__Organizo__: Cómo organizó el viaje
+*	__Organizo__: C?mo organiz? el viaje
 *	__GTotal__: Gasto Total
 *	__Destino__: Zona de Destino
-*	__coef__: Coeficiente de ponderación
+*	__coef__: Coeficiente de ponderaci?n
 
 [__Glosario de conceptos sobre turismo__](http://media.unwto.org/es/content/entender-el-turismo-glosario-basico#Motivo)
 
 __Grupo de viaje__
 Un grupo de viaje se define como visitantes que realizan juntos un viaje y comparten los gastos vinculados con el mismo.
 
-__Gasto turístico__ 
-El gasto turístico hace referencia a la suma pagada por la adquisición de bienes y servicios de consumo, y de objetos valiosos, para uso propio o para regalar, durante los viajes turísticos y para los mismos.
+__Gasto tur?stico__ 
+El gasto tur?stico hace referencia a la suma pagada por la adquisici?n de bienes y servicios de consumo, y de objetos valiosos, para uso propio o para regalar, durante los viajes tur?sticos y para los mismos.
 
-__Excursionista (o visitante del día)__
-Un visitante (interno, receptor o emisor) se clasifica como turista (o visitante que pernocta), si su viaje incluye una pernoctación, o como visitante del día (o excursionista) en caso contrario.
+__Excursionista (o visitante del d?a)__
+Un visitante (interno, receptor o emisor) se clasifica como turista (o visitante que pernocta), si su viaje incluye una pernoctaci?n, o como visitante del d?a (o excursionista) en caso contrario.
 Destino (destino principal) de un viaje 
-El destino principal de un viaje turístico es el lugar visitado que es fundamental para la decisión de realizar el viaje. 
+El destino principal de un viaje tur?stico es el lugar visitado que es fundamental para la decisi?n de realizar el viaje. 
 
 __Turismo internacional__ 
-El turismo internacional incluye el turismo receptor y el turismo emisor, es decir, las actividades realizadas por los visitantes residentes fuera del país de referencia, como parte de sus viajes turísticos internos o emisores, y las actividades realizadas por los visitantes no residentes en el país de referencia, como parte de sus viajes turísticos receptores.
+El turismo internacional incluye el turismo receptor y el turismo emisor, es decir, las actividades realizadas por los visitantes residentes fuera del pa?s de referencia, como parte de sus viajes tur?sticos internos o emisores, y las actividades realizadas por los visitantes no residentes en el pa?s de referencia, como parte de sus viajes tur?sticos receptores.
 
 __Turismo receptor__  
-Engloba las actividades realizadas por un visitante no residente en el país de referencia, como parte de un viaje turístico receptor.
+Engloba las actividades realizadas por un visitante no residente en el pa?s de referencia, como parte de un viaje tur?stico receptor.
 
 __Turismo emisor__ 
-El turismo emisor abarca las actividades realizadas por un visitante residente fuera del país de referencia, como parte de un viaje turístico emisor o de un viaje turístico interno.
+El turismo emisor abarca las actividades realizadas por un visitante residente fuera del pa?s de referencia, como parte de un viaje tur?stico emisor o de un viaje tur?stico interno.
 
 __Turismo interior__ 
-El turismo interior engloba el turismo interno y el turismo receptor, a saber, las actividades realizadas por los visitantes residentes y no residentes en el país de referencia, como parte de sus viajes turísticos internos o internacionales.
+El turismo interior engloba el turismo interno y el turismo receptor, a saber, las actividades realizadas por los visitantes residentes y no residentes en el pa?s de referencia, como parte de sus viajes tur?sticos internos o internacionales.
 
 
 __Turista (o visitante que pernocta)__ 
-Un visitante (interno, receptor o emisor) se clasifica como turista (o visitante que pernocta), si su viaje incluye una pernoctación.
+Un visitante (interno, receptor o emisor) se clasifica como turista (o visitante que pernocta), si su viaje incluye una pernoctaci?n.
 
 __Visita__
-Un viaje se compone de visitas a diferentes lugares. El término "visita turística" hace referencia a una estancia en un lugar visitado durante un viaje turístico.
+Un viaje se compone de visitas a diferentes lugares. El t?rmino "visita tur?stica" hace referencia a una estancia en un lugar visitado durante un viaje tur?stico.
 
 __Vistante__ 
-Un visitante es una persona que viaja a un destino principal distinto al de su entorno habitual, por una duración inferior a un año, con cualquier finalidad principal (ocio, negocios u otro motivo personal) que no sea la de ser empleado por una entidad residente en el país o lugar visitados. Un visitante (interno, receptor o emisor) se clasifica como turista (o visitante que pernocta), si su viaje incluye una pernoctación, o como visitante del día (o excursionista) en caso contrario.
+Un visitante es una persona que viaja a un destino principal distinto al de su entorno habitual, por una duraci?n inferior a un a?o, con cualquier finalidad principal (ocio, negocios u otro motivo personal) que no sea la de ser empleado por una entidad residente en el pa?s o lugar visitados. Un visitante (interno, receptor o emisor) se clasifica como turista (o visitante que pernocta), si su viaje incluye una pernoctaci?n, o como visitante del d?a (o excursionista) en caso contrario.
 
 __Visitante de negocios__
-Un visitante de negocios es un visitante para el que los negocios y motivos profesionales son el motivo principal de un viaje turístico.
+Un visitante de negocios es un visitante para el que los negocios y motivos profesionales son el motivo principal de un viaje tur?stico.
 
 
-__Análisis Exploratorio__
+__An?lisis Exploratorio__
 
 
 
@@ -148,9 +148,9 @@ str(B2015)
 
 ```
 
-Como era de esperarse el periodo con mayor ingresos es el verano, esto se debe a que Uruguay es un país cuyo atractivo radica en sus playas y el mar. Los ingresos por motivos de turismo alcanzaron su punto máximo durante el mes de enero con un valor de " " dólares.A excepción de un pico inusual en el mes de Julio se observa una tendecia decreciente hasta Agosto que posteriormente aumenta hasta llegar en el siguiente año de nuevo a su pico máximo .
+Como era de esperarse el periodo con mayor ingresos es el verano, esto se debe a que Uruguay es un pa?s cuyo atractivo radica en sus playas y el mar. Los ingresos por motivos de turismo alcanzaron su punto m?ximo durante el mes de enero con un valor de " " d?lares.A excepci?n de un pico inusual en el mes de Julio se observa una tendecia decreciente hasta Agosto que posteriormente aumenta hasta llegar en el siguiente a?o de nuevo a su pico m?ximo .
 
-```{r,fig.aline = "center", fig.height = 5, fig.width = 7,out.width = "5.5in",  fig.cap= "Gastos totales incurridos por turistas segun el mes durante el año 2015", echo=FALSE}
+```{r,fig.aline = "center", fig.height = 5, fig.width = 7,out.width = "5.5in",  fig.cap= "Gastos totales incurridos por turistas segun el mes durante el a?o 2015", echo=FALSE}
 
 by_Destino <- B2015  %>%  mutate(Gasto= GTotal*coef) %>% select(Gasto, Mes) %>% group_by(Mes) %>% summarise(Gastos= sum(Gasto))
 
@@ -162,7 +162,7 @@ by_Destino %>% ggplot(aes(x=Mes, y=Gastos)) + geom_point() +geom_line()+ scale_x
 
 
 
-__VISITANTES INGRESADOS A URUGUAY, POR ZONA DE DESTINO, ESTADÍA Y GASTO.__
+__VISITANTES INGRESADOS A URUGUAY, POR ZONA DE DESTINO, ESTAD?A Y GASTO.__
 ```{r, echo=FALSE, results='asis', warning=FALSE, eval=TRUE}
 
 options(xtable.comment = FALSE)
@@ -186,49 +186,60 @@ print(B, caption = strCaption, label = "", include.rownames = FALSE,include.coln
 
 ```
 
-El principal destino fue Montevideo superando las 935mil visitas en el año, seguido de Punta  del Este con más de 620mil visitas, en tercer lugar tenemos el Litoral Termal con 424mil visitas. En lo que respecta a ingresos en dólares, Punta del Este ocupa el primer lugar alcanzando un monto mayor a 746 millones durante el año, seguido de Montevideo con más de 572 millones.
+El principal destino fue Montevideo superando las 935mil visitas en el a?o, seguido de Punta  del Este con m?s de 620mil visitas, en tercer lugar tenemos el Litoral Termal con 424mil visitas. En lo que respecta a ingresos en d?lares, Punta del Este ocupa el primer lugar alcanzando un monto mayor a 746 millones durante el a?o, seguido de Montevideo con m?s de 572 millones.
 
 
 
 
-```{r, echo=FALSE, fig.aline = "center", fig.height = 4, fig.width = 4,out.width = "3.5in",  fig.cap= "Proporción de visitantes ingresados a Uruguay según zona de destino"}
+```{r, echo=FALSE, fig.aline = "center", fig.height = 4, fig.width = 4,out.width = "3.5in",  fig.cap= "Proporci?n de visitantes ingresados a Uruguay seg?n zona de destino"}
 
 x <- destino %>% select(Destino,value) %>% gather(Destino,value)
 
-x %>% ggplot() + geom_col(aes(x=fct_reorder(Destino,value, .desc = TRUE), y= value), fill="green") + coord_flip()+theme(legend.position="none")+labs(x = "Zona de destino", y = "Proporción de visitantes")+ theme_classic() 
+x %>% ggplot() + geom_col(aes(x=fct_reorder(Destino,value, .desc = TRUE), y= value), fill="green") + coord_flip()+theme(legend.position="none")+labs(x = "Zona de destino", y = "Proporci?n de visitantes")+ theme_classic() 
 
 ```
 
 
 
 
-__VISITANTES INGRESADOS A URUGUAY, POR NACIONALIDAD, ESTADÍA Y GASTO__
+__VISITANTES INGRESADOS A URUGUAY, POR NACIONALIDAD, ESTAD?A Y GASTO__
 ```{r, echo=FALSE, results='asis'}
 
 options(xtable.comment = FALSE)
 
-by_Nacio <- B2015  %>% mutate(NACIONALIDAD= ifelse(Nac %in% c("Argentina"),"Argentina",ifelse(Nac %in% c("Brasil" ),"Brasil",ifelse(Nac %in% c("Uruguay" ),"Uruguay",ifelse(Nac %in% c( "EEUU", "Chile", "Paraguay", "Colombia", "México", "Perú", "Otro país América", "Venezuela", "Ecuador", "Canadá", "Bolivia", "Cuba"),"Otro país América", ifelse(Nac %in% c("País de África u Oceanía"),"País de África u Oceanía",ifelse(Nac %in% c( "Otro país Asia","Israel","Japón", "China"),"Asia", "Europa" ))))))) %>% dplyr::mutate(Gasto= GTotal*coef) %>% dplyr::mutate(Gente1= Gente*coef)%>% dplyr::mutate(Gente2= Gente*coeftot) %>% dplyr::select(NACIONALIDAD, Gente1,Gente2, Estadia, Gasto) %>% group_by(NACIONALIDAD) %>% summarise(n= round(sum(Gente1)), dias= weighted.mean(Estadia, Gente1), Gastos= round(sum(Gasto)))
+by_Nacio2015 <- B2015  %>% mutate(NACIONALIDAD= ifelse(Nac %in% c("Argentina"),"Argentina",ifelse(Nac %in% c("Brasil" ),"Brasil",ifelse(Nac %in% c("Uruguay" ),"Uruguay",ifelse(Nac %in% c( "EEUU", "Chile", "Paraguay", "Colombia", "M?xico", "Per?", "Otro pa?s Am?rica", "Venezuela", "Ecuador", "Canad?", "Bolivia", "Cuba"),"Otro pa?s Am?rica", ifelse(Nac %in% c("Pa?s de ?frica u Ocean?a"),"Pa?s de ?frica u Ocean?a",ifelse(Nac %in% c( "Otro pa?s Asia","Israel","Jap?n", "China"),"Asia", "Europa" ))))))) %>% dplyr::mutate(Gasto= GTotal*coef) %>% dplyr::mutate(Gente1= Gente*coef)%>% dplyr::mutate(Gente2= Gente*coeftot) %>% dplyr::select(NACIONALIDAD, Gente1,Gente2, Estadia, Gasto) %>% group_by(NACIONALIDAD) %>% summarise(n= round(sum(Gente1)), dias= weighted.mean(Estadia, Gente1), Gastos= round(sum(Gasto)))
 
-by_Nacio2 <- by_Nacio %>% mutate(value = (n/sum(n))*100)
+by_Nacio22015 <- by_Nacio2015 %>% mutate(value = (n/sum(n))*100)
 
-nacionalidad <-  by_Nacio %>% mutate(Gastos_P = Gastos/n) %>% mutate(Gastos_PDia = Gastos_P/dias ) %>% mutate(value = (n/sum(n))*100)
+naciona2015 <-  by_Nacio2015 %>% mutate(Gastos_P = Gastos/n) %>% mutate(Gastos_PDia = Gastos_P/dias ) %>% mutate(value = (n/sum(n))*100)
 
-naciop <-  by_Nacio %>% mutate(Gastos_P = round(Gastos/n)) %>% mutate(Gastos_PDia = round(Gastos_P/dias) )%>% xtable()
-i <- xtable(naciop)
-align(i) <- xalign(i)
-digits(i) <- xdigits(i)
-display(i) <- xdisplay(i)
-print(i,include.rownames = FALSE,include.colnames = TRUE,caption.placement ="top",comment=FALSE, floating=FALSE)
+naciop2015 <-  by_Nacio2015 %>% mutate(Gastos_P = round(Gastos/n)) %>% mutate(Gastos_PDia = round(Gastos_P/dias) )%>% xtable()
+nacionalidad2015 <- xtable(naciop2015)
+align(nacionalidad2015) <- xalign(nacionalidad2015)
+digits(nacionalidad2015) <- xdigits(nacionalidad2015)
+display(nacionalidad2015) <- xdisplay(nacionalidad2015)
+print(nacionalidad2015,include.rownames = FALSE,include.colnames = TRUE,caption.placement ="top",comment=FALSE, floating=FALSE)
 
 ```
 
-El principal origen de los visitantes es Argentina representando al 57,6%, seguido de Brasil con el 14,5% y luego uruguayos no residentes en el país con el 13,1%.
+El principal origen de los visitantes es Argentina representando al 57,6%, seguido de Brasil con el 14,5% y luego uruguayos no residentes en el pa?s con el 13,1%.
 
-```{r,echo=FALSE, fig.aline = "center", fig.height = 4, fig.width = 4,out.width = "3.5in",  fig.cap= "Proporción de visitantes ingresados a Uruguay según Nacionalidad"}
+```{r,echo=FALSE, fig.aline = "center", fig.height = 4, fig.width = 4,out.width = "3.5in",  fig.cap= "Proporci?n de visitantes ingresados a Uruguay seg?n Nacionalidad"}
 
-y <- by_Nacio2 %>% select(NACIONALIDAD,value) %>% gather(NACIONALIDAD,value)
+n.por.p <- by_Nacio22015 %>% select(NACIONALIDAD,value) %>% gather(NACIONALIDAD,value)
 
-y %>% ggplot() + geom_col(aes(x=fct_reorder(NACIONALIDAD,value, .desc = TRUE), y= value), fill="blue") + coord_flip()+theme(legend.position="none")+labs(x = "Nacionalidad", y = "Proporción de visitantes")+ theme_classic() 
+n.por.p %>% ggplot() + geom_col(aes(x=fct_reorder(NACIONALIDAD,value, .desc = TRUE), y= value, fill = NACIONALIDAD)) + coord_flip() + labs(x = "Nacionalidad", y = "Proporci?n de visitantes") + theme_classic() +theme(legend.position="none")
+
+nacionalidad2015%>% ggplot() + geom_col(aes(x=fct_reorder(NACIONALIDAD,dias, .desc = TRUE),dias,fill=NACIONALIDAD)) + coord_flip() + theme_classic() + theme(legend.position = "none")
+
+nacionalidad2015%>% ggplot() + geom_col(aes(x=fct_reorder(NACIONALIDAD,Gastos, .desc = TRUE),Gastos,fill=NACIONALIDAD)) + coord_flip() + theme_classic() + theme(legend.position = "none") + labs(y="Gastos Totales")
+
+nacionalidad2015%>% ggplot() + geom_col(aes(x=fct_reorder(NACIONALIDAD,Gastos_P, .desc = TRUE),Gastos_P,fill=NACIONALIDAD)) + coord_flip() + theme_classic() + theme(legend.position = "none") + labs(y="Gastos por persona")
+
+nacionalidad2015%>% ggplot() + geom_col(aes(x=fct_reorder(NACIONALIDAD,Gastos_PDia, .desc = TRUE),Gastos_PDia,fill=NACIONALIDAD)) + coord_flip() + theme_classic() + theme(legend.position = "none") + labs(y="Gastos por persona por dia")
+
+
+
 ```
 
 
@@ -246,13 +257,13 @@ count <- by_movil %>% dplyr::select(TransIn,n)
 
 ```
 
-En cuanto al medio de transporte mediante el cual ingresaron a l país, el 44,5% lo hizo en automóvil  y 33,3% por medio marítimo, lo cual no es de extrañarse puesto que casi  el 80% de los visitantes son de países limítrofes y  en su mayoría argentinos cuyo  fácil acceso a empresas como Buquebus o Colonia Express influyen notablemente en este porcentaje.
+En cuanto al medio de transporte mediante el cual ingresaron a l pa?s, el 44,5% lo hizo en autom?vil  y 33,3% por medio mar?timo, lo cual no es de extra?arse puesto que casi  el 80% de los visitantes son de pa?ses lim?trofes y  en su mayor?a argentinos cuyo  f?cil acceso a empresas como Buquebus o Colonia Express influyen notablemente en este porcentaje.
 
-```{r, echo=FALSE,  fig.aline = "center", fig.height = 4, fig.width = 4,out.width = "3.5in", fig.cap= "Proporción de visitantes ingresados a Uruguay según medio de ingreso al país"}
+```{r, echo=FALSE,  fig.aline = "center", fig.height = 4, fig.width = 4,out.width = "3.5in", fig.cap= "Proporci?n de visitantes ingresados a Uruguay seg?n medio de ingreso al pa?s"}
 
 z <- by_movil %>% select(TransIn,value) %>% gather(TransIn,value)
 
-z %>% ggplot() + geom_col(aes(x=fct_reorder(TransIn,value, .desc = FALSE), y= value), fill="orange") +theme(legend.position="none")+labs(x = "Transporte mediante el cual ingresó al país", y = "Proporción de visitantes")+ theme_classic()+ coord_flip()
+z %>% ggplot() + geom_col(aes(x=fct_reorder(TransIn,value, .desc = FALSE), y= value), fill="orange") +theme(legend.position="none")+labs(x = "Transporte mediante el cual ingres? al pa?s", y = "Proporci?n de visitantes")+ theme_classic()+ coord_flip()
  
 ```
 
@@ -266,43 +277,50 @@ by_motivo <- B2015  %>%  mutate(MOTIVO= ifelse(Motivo %in% c("Ocio y Vacaciones.
 
 ```
 
-El 60.5% de los visitantes que ingresaron al país declararon hacerlo por motivo de ocio y vacaciones mientras que el 19.2% por visitar a familiares y amigos.
+El 60.5% de los visitantes que ingresaron al pa?s declararon hacerlo por motivo de ocio y vacaciones mientras que el 19.2% por visitar a familiares y amigos.
 
-```{r, echo=FALSE, fig.aline = "center", fig.height = 4, fig.width = 4,out.width = "3.5in", fig.cap= "Proporción de visitantes ingresados a Uruguay según motivo de ingreso al país"}
+```{r, echo=FALSE, fig.aline = "center", fig.height = 4, fig.width = 4,out.width = "3.5in", fig.cap= "Proporci?n de visitantes ingresados a Uruguay seg?n motivo de ingreso al pa?s"}
 
 p <- by_motivo %>% select(MOTIVO,value) %>% gather(MOTIVO,value)
 
-p %>% ggplot() + geom_col(aes(x=fct_reorder(MOTIVO,value, .desc = TRUE), y= value)) +theme(legend.position="none")+labs(x = "Motivo de ingreso al país", y = "Proporción de visitantes")+ theme_classic() + coord_flip()
+p %>% ggplot() + geom_col(aes(x=fct_reorder(MOTIVO,value, .desc = TRUE), y= value)) +theme(legend.position="none")+labs(x = "Motivo de ingreso al pa?s", y = "Proporci?n de visitantes")+ theme_classic() + coord_flip()
 
 
 ```
 
-__VISITANTES INGRESADOS A URUGUAY, POR ALOJAMIENTO UTILIZADO, ESTADÍA Y GASTO__
+__VISITANTES INGRESADOS A URUGUAY, POR ALOJAMIENTO UTILIZADO, ESTAD?A Y GASTO__
 ```{r, echo=FALSE, results='asis'}
 
 options(xtable.comment = FALSE)
 
-by_aloja <- B2015 %>% mutate(ALOJA =ifelse(Aloja %in% c("Holtel 1/2", "Hotel 3", "Hotel 4", "Hotel 5", "Hotel sin categorizar"), "Hotel", ifelse (Aloja %in% c("Vivienda propia"), "Vivienda propia", ifelse(Aloja %in% c("Vivienda arrendada"), "Vivienda arrendada", ifelse(Aloja %in% c("Viv. FLiares."),"Viv. Familiares/amigos residentes", ifelse( Aloja %in% c("Vivienda Fliares. no residentes"), "Viv. Familiares/amigos no residentes", ifelse(Aloja %in% c("Camping"), "Camping", ifelse (Aloja %in% c("Cabañas, Bungalow"), "Cabañas, Bungalow", ifelse (Aloja %in% c("Apart Hotel"), "Apart Hotel",ifelse (Aloja %in% c("Ninguno"), "Sin alojamiento", ifelse (Aloja %in% c("Tiempo Compartido"), "Tiempo Compartido", ifelse (Aloja %in% c("Estancia turistica"), "Estancia turistica", ifelse(Aloja %in% c("Hostel"), "Hostal,Hostel, Albergue", "Otros-Sin Datos"))))))))))))) %>% dplyr::mutate(Gasto= GTotal*coef) %>% dplyr::mutate(Gente1= Gente*coef)%>% dplyr::mutate(Gente2= Gente*coeftot) %>% dplyr::select(ALOJA, Gente1,Gente2, Estadia, Gasto) %>% group_by(ALOJA) %>% summarise(n= round(sum(Gente1)), dias= weighted.mean(Estadia, Gente1), Gastos= sum(Gasto)) 
+by_aloja2015 <- B2015 %>% mutate(ALOJA =ifelse(Aloja %in% c("Holtel 1/2", "Hotel 3", "Hotel 4", "Hotel 5", "Hotel sin categorizar"), "Hotel", ifelse (Aloja %in% c("Vivienda propia"), "Vivienda propia", ifelse(Aloja %in% c("Vivienda arrendada"), "Vivienda arrendada", ifelse(Aloja %in% c("Viv. FLiares."),"Viv. Familiares/amigos residentes", ifelse( Aloja %in% c("Vivienda Fliares. no residentes"), "Viv. Familiares/amigos no residentes", ifelse(Aloja %in% c("Camping"), "Camping", ifelse (Aloja %in% c("Caba?as, Bungalow"), "Caba?as, Bungalow", ifelse (Aloja %in% c("Apart Hotel"), "Apart Hotel",ifelse (Aloja %in% c("Ninguno"), "Sin alojamiento", ifelse (Aloja %in% c("Tiempo Compartido"), "Tiempo Compartido", ifelse (Aloja %in% c("Estancia turistica"), "Estancia turistica", ifelse(Aloja %in% c("Hostel"), "Hostal,Hostel, Albergue", "Otros-Sin Datos"))))))))))))) %>% dplyr::mutate(Gasto= GTotal*coef) %>% dplyr::mutate(Gente1= Gente*coef)%>% dplyr::mutate(Gente2= Gente*coeftot) %>% dplyr::select(ALOJA, Gente1,Gente2, Estadia, Gasto) %>% group_by(ALOJA) %>% summarise(n= round(sum(Gente1)), dias= weighted.mean(Estadia, Gente1), Gastos= sum(Gasto)) 
 
-by_aloja1 <- by_aloja %>% mutate(value = (n/sum(n))*100)
+by_aloja12015 <- by_aloja2015 %>% mutate(value = (n/sum(n))*100)
 
-naciop <-  by_aloja %>% mutate(Gastos_P = round(Gastos/n)) %>% mutate(Gastos_PDia = round(Gastos_P/dias) )%>% xtable()
-e <- xtable(naciop)
-align(e) <- xalign(e)
-digits(e) <- xdigits(e)
-display(e) <- xdisplay(e)
-print(e,include.rownames = FALSE,include.colnames = TRUE,caption.placement ="top",comment=FALSE, floating=FALSE)
+naciop <-  by_aloja2015 %>% mutate(Gastos_P = round(Gastos/n)) %>% mutate(Gastos_PDia = round(Gastos_P/dias) )%>% xtable()
+aloja2015 <- xtable(naciop)
+align(aloja2015) <- xalign(aloja2015)
+digits(aloja2015) <- xdigits(aloja2015)
+display(aloja2015) <- xdisplay(aloja2015)
+print(aloja2015,include.rownames = FALSE,include.colnames = TRUE,caption.placement ="top",comment=FALSE, floating=FALSE)
 
 
 ```
 
-EL 31,3%  de los visitantes que ingresaron al país se alojó en Hoteles, seguido del 27,5% que se alojó en  viviendas de familiares o amigos residentes en el país. El 6,2% de los visitantes no utilizó ningún tipo de alojamiento.
+EL 31,3%  de los visitantes que ingresaron al pa?s se aloj? en Hoteles, seguido del 27,5% que se aloj? en  viviendas de familiares o amigos residentes en el pa?s. El 6,2% de los visitantes no utiliz? ning?n tipo de alojamiento.
 
-```{r, echo=FALSE,  fig.aline = "center", fig.height = 4, fig.width = 7,out.width = "4.5in",  fig.cap= "Proporción de visitantes ingresados a Uruguay según alojamiento utilizado durante su estadía en el país"}
+```{r, echo=FALSE,  fig.aline = "center", fig.height = 4, fig.width = 7,out.width = "4.5in",  fig.cap= "Proporci?n de visitantes ingresados a Uruguay seg?n alojamiento utilizado durante su estad?a en el pa?s"}
 
-r <- by_aloja1 %>% select(ALOJA,value) %>% gather(ALOJA,value)
+a.por.p <- by_aloja12015 %>% select(ALOJA,value) %>% gather(ALOJA,value)
 
-r %>% ggplot() + geom_col(aes(x=fct_reorder(ALOJA,value, .desc = TRUE), y= value), fill= "Red") +theme(legend.position="none")+labs(x = "Alojamiento utilizado durante su estadía en el país", y = "Proporción de visitantes")+ theme_classic() + coord_flip()
+a.por.p %>% ggplot() + geom_col(aes(x=fct_reorder(ALOJA,value, .desc = TRUE), y= value, fill=ALOJA)) +theme(legend.position="none")+labs(x = "Alojamiento utilizado durante su estad?a en el pa?s", y = "Proporci?n de visitantes")+ theme_classic() + coord_flip()
 
+aloja2015%>% ggplot() + geom_col(aes(x=fct_reorder(ALOJA,dias, .desc = TRUE),dias,fill=ALOJA)) + coord_flip() + theme_classic() + theme(legend.position = "none") + labs(x="Alojamiento utilizado durante su estad?a en el pa?s")
+
+aloja2015%>% ggplot() + geom_col(aes(x=fct_reorder(ALOJA,Gastos, .desc = TRUE),Gastos,fill=ALOJA)) + coord_flip() + theme_classic() + theme(legend.position = "none") + labs(x="Alojamiento utilizado durante su estad?a en el pa?s")
+
+aloja2015%>% ggplot() + geom_col(aes(x=fct_reorder(ALOJA,Gastos_P, .desc = TRUE),Gastos_P,fill=ALOJA)) + coord_flip() + theme_classic() + theme(legend.position = "none") + labs(x="Alojamiento utilizado durante su estad?a en el pa?s", y="Gastos por persona")
+
+aloja2015%>% ggplot() + geom_col(aes(x=fct_reorder(ALOJA,Gastos_PDia, .desc = TRUE),Gastos_PDia,fill=ALOJA)) + coord_flip() + theme_classic() + theme(legend.position = "none") + labs(x="Alojamiento utilizado durante su estad?a en el pa?s", y="Gastos por persona por dia")
 
 ```
